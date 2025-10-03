@@ -21,7 +21,6 @@
             --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
-
         body {
             font-family: var(--font-main);
             line-height: 1.6;
@@ -32,13 +31,11 @@
             padding: 20px;
             touch-action: manipulation;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
         .card {
             background: white;
             border-radius: var(--border-radius);
@@ -48,12 +45,10 @@
             box-shadow: var(--box-shadow);
             border: 1px solid #e2e8f0;
         }
-
         .card:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-
         .card-title {
             color: var(--primary-color);
             margin-bottom: 20px;
@@ -62,7 +57,6 @@
             position: relative;
             padding-bottom: 10px;
         }
-
         .card-title::after {
             content: '';
             position: absolute;
@@ -74,12 +68,10 @@
             background: var(--accent-color);
             border-radius: 3px;
         }
-
         h1, h2, h3, h4, h5, h6 {
             color: var(--dark-color);
             margin-top: 0;
         }
-
         h1 {
             font-size: 2.5rem;
             text-align: center;
@@ -89,13 +81,11 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         h2 {
             font-size: 2rem;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
-
         .highlight-verb {
             background: linear-gradient(45deg, #ef4444, #f97316);
             padding: 6px 12px;
@@ -106,7 +96,6 @@
             margin: 3px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .highlight-subject {
             background: linear-gradient(45deg, #3b82f6, #1d4ed8);
             padding: 6px 12px;
@@ -117,7 +106,6 @@
             margin: 3px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .example-box {
             background-color: #f8fafc;
             border-left: 4px solid var(--primary-color);
@@ -126,7 +114,6 @@
             border-radius: var(--border-radius);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .interactive-example {
             background: white;
             border: 2px solid #e2e8f0;
@@ -137,18 +124,15 @@
             transition: var(--transition);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .interactive-example:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-color: var(--primary-color);
         }
-
         .interactive-example.active {
             border-color: var(--secondary-color);
             background-color: #f1f5f9;
         }
-
         .quiz-option {
             background: white;
             border: 2px solid #e2e8f0;
@@ -162,25 +146,21 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .quiz-option:hover {
             background: #f1f5f9;
             border-color: var(--primary-color);
             transform: translateY(-2px);
         }
-
         .quiz-option.correct {
             background: rgba(16, 185, 129, 0.1);
             border-color: var(--success-color);
             color: var(--success-color);
         }
-
         .quiz-option.wrong {
             background: rgba(239, 68, 68, 0.1);
             border-color: var(--danger-color);
             color: var(--danger-color);
         }
-
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -194,32 +174,26 @@
             min-width: 120px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .btn-primary {
             background: var(--primary-color);
             color: white;
         }
-
         .btn-success {
             background: var(--success-color);
             color: white;
         }
-
         .btn-danger {
             background: var(--danger-color);
             color: white;
         }
-
         .btn-warning {
             background: var(--warning-color);
             color: var(--dark-color);
         }
-
         .btn:hover {
             opacity: 0.9;
             transform: translateY(-2px);
         }
-
         .result-message {
             padding: 15px;
             border-radius: var(--border-radius);
@@ -229,19 +203,16 @@
             display: none;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .result-correct {
             background: rgba(16, 185, 129, 0.1);
             color: var(--success-color);
             border: 1px solid var(--success-color);
         }
-
         .result-wrong {
             background: rgba(239, 68, 68, 0.1);
             color: var(--danger-color);
             border: 1px solid var(--danger-color);
         }
-
         .word-game {
             background: white;
             padding: 20px;
@@ -249,7 +220,6 @@
             margin-top: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .word-game-words {
             display: flex;
             flex-wrap: wrap;
@@ -262,7 +232,6 @@
             margin-bottom: 20px;
             border: 1px dashed #e2e8f0;
         }
-
         .word-item {
             background: white;
             color: var(--dark-color);
@@ -274,19 +243,16 @@
             font-weight: 500;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .word-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             background: #f1f5f9;
         }
-
         .word-item.selected {
             background: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
         }
-
         .sentence-builder {
             min-height: 80px;
             padding: 15px;
@@ -299,7 +265,6 @@
             justify-content: center;
             border: 1px dashed #e2e8f0;
         }
-
         .sentence-word {
             background: var(--primary-color);
             color: white;
@@ -310,12 +275,10 @@
             transition: var(--transition);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .sentence-word:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .sentence-word::after {
             content: '×';
             position: absolute;
@@ -332,7 +295,6 @@
             font-size: 12px;
             cursor: pointer;
         }
-
         .game-controls {
             display: flex;
             flex-wrap: wrap;
@@ -340,14 +302,12 @@
             gap: 10px;
             margin-bottom: 20px;
         }
-
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-
         .summary-item {
             background: white;
             padding: 15px;
@@ -355,47 +315,69 @@
             border-left: 4px solid var(--primary-color);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .hidden {
             display: none !important;
         }
-
         .bounce-in {
             animation: bounceIn 0.5s ease-out;
         }
-
         @keyframes bounceIn {
             0% { transform: scale(0.3); opacity: 0; }
             50% { transform: scale(1.05); }
             70% { transform: scale(0.95); }
             100% { transform: scale(1); opacity: 1; }
         }
-
+        /* إضافة الكلاسات المفقودة */
+        .grid { display: grid; }
+        .gap-4 { gap: 16px; }
+        .gap-3 { gap: 12px; }
+        .gap-6 { gap: 24px; }
+        .mb-3 { margin-bottom: 12px; }
+        .mt-2 { margin-top: 8px; }
+        .mt-4 { margin-top: 16px; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-base { font-size: 1rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-center { text-align: center; }
+        .text-gray-600 { color: #6b7280; }
+        .text-gray-500 { color: #6b7280; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .space-y-2 > * + * { margin-top: 8px; }
+        /* Grid system */
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        /* Media queries للاستجابة */
+        @media (min-width: 768px) {
+            .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 768px) {
             .quiz-options {
                 grid-template-columns: 1fr !important;
             }
-
             .game-controls {
                 flex-direction: column;
                 align-items: center;
             }
-
             h1 {
                 font-size: 2rem;
             }
-
             h2 {
                 font-size: 1.6rem;
             }
         }
-
         .touch-target {
             min-width: 80px;
             min-height: 40px;
             padding: 10px 15px;
         }
-
         .word-item, .sentence-word, .quiz-option, .btn {
             -webkit-tap-highlight-color: transparent;
             user-select: none;
@@ -414,11 +396,9 @@
                 <span style="background: var(--accent-color); color: var(--dark-color); padding: 8px 16px; border-radius: 20px; font-weight: bold;">ممتع</span>
             </div>
         </header>
-
         <!-- Introduction Section -->
         <section class="card">
             <h2 class="card-title">مقدمة عن الفاعل</h2>
-
             <div class="example-box">
                 <h3>💡 تذكير: الفعل</h3>
                 <p>الفعل كلمة تدل على عمل أو حدث (ماضي - مضارع - أمر)</p>
@@ -428,7 +408,6 @@
                     <span class="highlight-verb">اكتب</span>
                 </div>
             </div>
-
             <div class="example-box">
                 <h3>👤 تعريف الفاعل</h3>
                 <p style="font-weight: 600;">
@@ -436,12 +415,10 @@
                 </p>
             </div>
         </section>
-
         <!-- Cases Section -->
         <section class="card">
             <h2 class="card-title">حالات الفاعل المختلفة</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
                 <div class="example-box">
                     <h4>1️⃣ الاسم المفرد</h4>
                     <p>يرفع بالضمة الظاهرة على آخره</p>
@@ -449,7 +426,6 @@
                         مثال: <span class="highlight-verb">لعب</span> <span class="highlight-subject">الولدُ</span>
                     </p>
                 </div>
-
                 <div class="example-box">
                     <h4>2️⃣ جمع التكسير</h4>
                     <p>يرفع بالضمة الظاهرة على آخره</p>
@@ -457,7 +433,6 @@
                         مثال: <span class="highlight-verb">لعب</span> <span class="highlight-subject">الأولادُ</span>
                     </p>
                 </div>
-
                 <div class="example-box">
                     <h4>3️⃣ جمع المؤنث السالم</h4>
                     <p>يرفع بالضمة الظاهرة على آخره</p>
@@ -465,7 +440,6 @@
                         مثال: <span class="highlight-verb">لعبت</span> <span class="highlight-subject">البناتُ</span>
                     </p>
                 </div>
-
                 <div class="example-box">
                     <h4>4️⃣ الضمائر المتصلة</h4>
                     <p>مبنية في محل رفع فاعل</p>
@@ -473,7 +447,6 @@
                         مثال: <span class="highlight-verb">لعب</span><span class="highlight-subject">تُ</span>
                     </p>
                 </div>
-
                 <div class="example-box">
                     <h4>5️⃣ الضمير المستتر</h4>
                     <p>ضمير مخفي يُقدر</p>
@@ -483,12 +456,10 @@
                 </div>
             </div>
         </section>
-
         <!-- Interactive Examples -->
         <section class="card">
             <h2 class="card-title">أمثلة تفاعلية</h2>
-
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md-grid-cols-2 gap-6">
                 <!-- Example 1 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'لعب', 'الولدُ', 'اسم مفرد مرفوع بالضمة الظاهرة')">
                     <p class="text-lg text-center font-semibold">
@@ -496,7 +467,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 2 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'لعب', 'الأولادُ', 'جمع تكسير مرفوع بالضمة الظاهرة')">
                     <p class="text-lg text-center font-semibold">
@@ -504,7 +474,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 3 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'لعبت', 'البناتُ', 'جمع مؤنث سالم مرفوع بالضمة الظاهرة')">
                     <p class="text-lg text-center font-semibold">
@@ -512,7 +481,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 4 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'لعب', 'ت', 'ضمير متصل مبني في محل رفع فاعل')">
                     <p class="text-lg text-center font-semibold">
@@ -520,7 +488,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 5 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'يلعب', 'هو (مستتر)', 'ضمير مستتر تقديره (هو)')">
                     <p class="text-lg text-center font-semibold">
@@ -528,7 +495,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 6 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'قرأ', 'الطالبُ', 'اسم مفرد مرفوع بالضمة الظاهرة')">
                     <p class="text-lg text-center font-semibold">
@@ -536,7 +502,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 7 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'كتبت', 'المعلماتُ', 'جمع مؤنث سالم مرفوع بالضمة الظاهرة')">
                     <p class="text-lg text-center font-semibold">
@@ -544,7 +509,6 @@
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
-
                 <!-- Example 8 -->
                 <div class="interactive-example" onclick="highlightExample(this, 'درس', 'نا', 'ضمير متصل مبني في محل رفع فاعل')">
                     <p class="text-lg text-center font-semibold">
@@ -554,11 +518,9 @@
                 </div>
             </div>
         </section>
-
         <!-- Quiz Section -->
         <section class="card">
             <h2 class="card-title">اختبار سريع</h2>
-
             <div id="quiz-container">
                 <!-- Question 1 -->
                 <div id="question1" class="quiz-question">
@@ -566,81 +528,69 @@
                         <p class="text-lg mb-3 text-center">في الجملة: "لعبت البنات في الحديقة"</p>
                         <p class="text-base mb-3 text-center font-semibold">ما نوع الفاعل "البنات"؟</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="grid grid-cols-1 md-grid-cols-3 gap-3">
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 1)">اسم مفرد</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 1)">جمع مؤنث سالم</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 1)">جمع تكسير</button>
                     </div>
                 </div>
-
                 <!-- Question 2 -->
                 <div id="question2" class="quiz-question hidden">
                     <div style="border-left: 4px solid var(--secondary-color); padding: 15px; margin-bottom: 15px; background: #f8fafc;">
                         <p class="text-lg mb-3 text-center">في الجملة: "يلعب في الحديقة"</p>
                         <p class="text-base mb-3 text-center font-semibold">ما نوع الفاعل؟</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="grid grid-cols-1 md-grid-cols-3 gap-3">
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 2)">اسم ظاهر</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 2)">ضمير مستتر</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 2)">ضمير متصل</button>
                     </div>
                 </div>
-
                 <!-- Question 3 -->
                 <div id="question3" class="quiz-question hidden">
                     <div style="border-left: 4px solid var(--danger-color); padding: 15px; margin-bottom: 15px; background: #f8fafc;">
                         <p class="text-lg mb-3 text-center">في الجملة: "لعبنا في الحديقة"</p>
                         <p class="text-base mb-3 text-center font-semibold">ما إعراب "نا" في "لعبنا"؟</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 md-grid-cols-2 gap-3">
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 3)">ضمير متصل مبني في محل رفع فاعل</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 3)">حرف عطف</button>
                     </div>
                 </div>
-
                 <!-- Question 4 -->
                 <div id="question4" class="quiz-question hidden">
                     <div style="border-left: 4px solid var(--warning-color); padding: 15px; margin-bottom: 15px; background: #f8fafc;">
                         <p class="text-lg mb-3 text-center">في الجملة: "قرأ الطالب الكتاب"</p>
                         <p class="text-base mb-3 text-center font-semibold">ما نوع الفاعل "الطالب"؟</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="grid grid-cols-1 md-grid-cols-3 gap-3">
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 4)">اسم مفرد</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 4)">جمع تكسير</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 4)">ضمير متصل</button>
                     </div>
                 </div>
-
                 <!-- Question 5 -->
                 <div id="question5" class="quiz-question hidden">
                     <div style="border-left: 4px solid var(--info-color); padding: 15px; margin-bottom: 15px; background: #f8fafc;">
                         <p class="text-lg mb-3 text-center">أي من الجمل التالية فاعلها ضمير مستتر؟</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 md-grid-cols-2 gap-3">
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 5)">قرأت المعلمات الدرس</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 5)">يكتب بجد</button>
                     </div>
                 </div>
-
                 <!-- Question 6 -->
                 <div id="question6" class="quiz-question hidden">
                     <div style="border-left: 4px solid var(--success-color); padding: 15px; margin-bottom: 15px; background: #f8fafc;">
                         <p class="text-lg mb-3 text-center">في الجملة: "كتبنا الدرس"</p>
                         <p class="text-base mb-3 text-center font-semibold">ما نوع الفاعل؟</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="grid grid-cols-1 md-grid-cols-3 gap-3">
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 6)">ضمير متصل</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 6)">ضمير مستتر</button>
                         <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 6)">اسم ظاهر</button>
                     </div>
                 </div>
-
                 <!-- Results -->
                 <div id="quiz-result" class="hidden">
                     <div id="correct-answer" class="result-message result-correct hidden">
@@ -657,7 +607,6 @@
                         <button id="restart-quiz" class="btn btn-primary hidden" onclick="restartQuiz()">ابدأ من جديد 🔄</button>
                     </div>
                 </div>
-
                 <div id="quiz-complete" class="result-message result-correct hidden">
                     <p class="text-2xl font-bold mb-3">🏆 أحسنت!</p>
                     <p class="text-lg mb-2">لقد أكملت الاختبار بنجاح</p>
@@ -665,18 +614,15 @@
                 </div>
             </div>
         </section>
-
         <!-- Word Game Section -->
         <section class="card">
             <h2 class="card-title">تمرين تجميع الكلمات</h2>
-
             <div class="word-game">
                 <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; border-left: 4px solid var(--primary-color);">
                     <h3 class="text-lg font-bold mb-2">📋 التعليمات:</h3>
                     <p>اضغط على الكلمات بالترتيب الصحيح لتكوين جملة فعلية مفيدة</p>
                     <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">تذكر: الجملة الفعلية تبدأ بالفعل ثم الفاعل</p>
                 </div>
-
                 <div id="word-game-container">
                     <!-- Game Progress -->
                     <div class="text-center mb-4">
@@ -684,7 +630,6 @@
                             الجملة <span id="current-sentence-number">1</span> من <span id="total-sentences">10</span>
                         </span>
                     </div>
-
                     <!-- Scattered Words -->
                     <div class="mb-4">
                         <h3 class="text-lg font-bold mb-2 text-center">🔤 الكلمات المتاحة:</h3>
@@ -692,7 +637,6 @@
                             <!-- Words will be populated by JavaScript -->
                         </div>
                     </div>
-
                     <!-- Sentence Building Area -->
                     <div class="mb-4">
                         <h3 class="text-lg font-bold mb-2 text-center">✏️ الجملة المكونة:</h3>
@@ -700,7 +644,6 @@
                             <p class="text-gray-500" id="drop-hint">👆 اضغط على الكلمات أعلاه لتكوين الجملة</p>
                         </div>
                     </div>
-
                     <!-- Control Buttons -->
                     <div class="game-controls">
                         <button class="btn btn-success touch-target" onclick="checkSentence()">تحقق من الجملة ✅</button>
@@ -708,16 +651,13 @@
                         <button class="btn btn-warning touch-target" onclick="showHint()">مساعدة 💡</button>
                         <button class="btn btn-primary touch-target" onclick="nextWordGame()">جملة جديدة ➡️</button>
                     </div>
-
                     <!-- Hint -->
                     <div id="hint-area" class="example-box hidden">
                         <h4>💡 تلميح:</h4>
                         <p id="hint-text"></p>
                     </div>
-
                     <!-- Result -->
                     <div id="word-game-result" class="result-message hidden"></div>
-
                     <!-- Score -->
                     <div class="text-center mt-4">
                         <div style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; display: inline-block;">
@@ -727,11 +667,9 @@
                 </div>
             </div>
         </section>
-
         <!-- Summary Section -->
         <section class="card">
             <h2 class="card-title">ملخص الدرس</h2>
-
             <div class="summary-grid">
                 <!-- تعريف الفاعل -->
                 <div class="summary-item">
@@ -742,7 +680,6 @@
                         <p><strong>مثال:</strong> لعب الولد<span style="color: var(--accent-color);">ُ</span></p>
                     </div>
                 </div>
-
                 <!-- الاسم الظاهر -->
                 <div class="summary-item">
                     <h4 class="font-bold mb-2">🔤 الاسم الظاهر</h4>
@@ -751,7 +688,6 @@
                         <p>يرفع بالضمة الظاهرة</p>
                     </div>
                 </div>
-
                 <!-- الضمائر -->
                 <div class="summary-item">
                     <h4 class="font-bold mb-2">🔗 الضمائر</h4>
@@ -761,17 +697,14 @@
                     </div>
                 </div>
             </div>
-
             <p class="mt-4 text-lg text-center font-bold" style="color: var(--primary-color);">🌟 أحسنت! أنت الآن تعرف الفاعل وحالاته المختلفة 🌟</p>
         </section>
-
         <!-- Teacher Credit -->
         <div class="card text-center">
             <p class="text-lg font-semibold mb-2">📚 إعداد وتصميم:</p>
             <p class="text-2xl font-bold" style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">الأستاذ خليل البلوشي</p>
         </div>
     </div>
-
     <script>
         // Interactive Examples Functionality
         function highlightExample(element, verb, subject, type) {
@@ -781,10 +714,8 @@
                 const explanation = el.querySelector('.explanation');
                 if (explanation) explanation.remove();
             });
-
             // Add active class to current element
             element.classList.add('active');
-
             // Create explanation element
             const explanation = document.createElement('div');
             explanation.className = 'explanation';
@@ -799,15 +730,12 @@
                 <p style="margin-bottom: 8px;"><span class="highlight-verb">${verb}</span> = الفعل</p>
                 <p><span class="highlight-subject">${subject}</span> = الفاعل (${type})</p>
             `;
-
             element.appendChild(explanation);
         }
-
         // Quiz Functionality
         let currentQuestion = 1;
         let score = 0;
         const totalQuestions = 6;
-
         const quizData = {
             1: {
                 correct: "البنات هو جمع مؤنث سالم، يرفع بالضمة الظاهرة",
@@ -834,19 +762,16 @@
                 wrong: "نا ضمير متصل وليس مستتر أو اسم ظاهر"
             }
         };
-
         function checkAnswer(element, isCorrect, questionNum) {
             // Disable all options
             const currentQuestionDiv = document.getElementById(`question${questionNum}`);
             const allButtons = currentQuestionDiv.querySelectorAll('.quiz-option');
             allButtons.forEach(btn => btn.style.pointerEvents = 'none');
-
             if (isCorrect) {
                 score++;
                 element.classList.add('correct');
                 document.getElementById('correct-answer').classList.remove('hidden');
                 document.getElementById('correct-explanation').textContent = quizData[questionNum].correct;
-
                 if (questionNum < totalQuestions) {
                     document.getElementById('next-question').classList.remove('hidden');
                 } else {
@@ -859,22 +784,17 @@
                 document.getElementById('wrong-explanation').textContent = quizData[questionNum].wrong;
                 document.getElementById('retry-question').classList.remove('hidden');
             }
-
             document.getElementById('quiz-result').classList.remove('hidden');
         }
-
         function nextQuestion() {
             document.getElementById(`question${currentQuestion}`).classList.add('hidden');
             document.getElementById('quiz-result').classList.add('hidden');
-
             document.getElementById('next-question').classList.add('hidden');
             document.getElementById('retry-question').classList.add('hidden');
             document.getElementById('correct-answer').classList.add('hidden');
             document.getElementById('wrong-answer').classList.add('hidden');
-
             currentQuestion++;
             document.getElementById(`question${currentQuestion}`).classList.remove('hidden');
-
             // Reset options
             const currentOptions = document.querySelectorAll(`#question${currentQuestion} .quiz-option`);
             currentOptions.forEach(option => {
@@ -882,104 +802,95 @@
                 option.style.pointerEvents = 'auto';
             });
         }
-
         function resetCurrentQuestion() {
             document.getElementById('wrong-answer').classList.add('hidden');
             document.getElementById('retry-question').classList.add('hidden');
-
             const currentOptions = document.querySelectorAll(`#question${currentQuestion} .quiz-option`);
             currentOptions.forEach(option => {
                 option.classList.remove('wrong');
                 option.style.pointerEvents = 'auto';
             });
         }
-
         function restartQuiz() {
             currentQuestion = 1;
             score = 0;
-
             // Hide all questions and results
             for (let i = 1; i <= totalQuestions; i++) {
                 document.getElementById(`question${i}`).classList.add('hidden');
             }
-
             document.getElementById('quiz-result').classList.add('hidden');
             document.getElementById('quiz-complete').classList.add('hidden');
-
             // Reset all options
             document.querySelectorAll('.quiz-option').forEach(option => {
                 option.classList.remove('correct', 'wrong');
                 option.style.pointerEvents = 'auto';
             });
-
             // Show first question
             document.getElementById('question1').classList.remove('hidden');
         }
-
         function showQuizComplete() {
             document.getElementById('quiz-complete').classList.remove('hidden');
             document.getElementById('final-score').textContent = `${score}/${totalQuestions}`;
+            document.getElementById('quiz-result').classList.add('hidden');
         }
-
         // Word Game Functionality
         let currentGameIndex = 0;
         let gameScore = 0;
         let currentSentenceWords = [];
-
         const wordGameSentences = [
             {
-                words: ['لعب', 'الولدُ', 'في', 'الحديقة'],
-                correct: ['لعب', 'الولدُ', 'في', 'الحديقة'],
+                words: ['لعب', 'الولد', 'في', 'الحديقة'],
+                correct: ['لعب', 'الولد', 'في', 'الحديقة'],
                 verb: 'لعب',
-                subject: 'الولدُ',
+                subject: 'الولد',
                 subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الذي يدل على اللعب، ثم من قام باللعب'
             },
             {
-                words: ['قرأت', 'البنتُ', 'الكتاب'],
-                correct: ['قرأت', 'البنتُ', 'الكتاب'],
+                words: ['قرأت', 'البنت', 'الكتاب'],
+                correct: ['قرأت', 'البنت', 'الكتاب'],
                 verb: 'قرأت',
-                subject: 'البنتُ',
+                subject: 'البنت',
                 subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للقراءة، ثم من قامت بالقراءة'
             },
             {
-                words: ['لعبت', 'البناتُ', 'في', 'الحديقة'],
-                correct: ['لعبت', 'البناتُ', 'في', 'الحديقة'],
+                words: ['لعبت', 'البنات', 'في', 'الحديقة'],
+                correct: ['لعبت', 'البنات', 'في', 'الحديقة'],
                 verb: 'لعبت',
-                subject: 'البناتُ',
+                subject: 'البنات',
                 subjectType: 'جمع مؤنث سالم مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للعب، ثم من قمن باللعب'
             },
             {
-                words: ['ركل', 'الأولادُ', 'الكرة'],
-                correct: ['ركل', 'الأولادُ', 'الكرة'],
+                words: ['ركل', 'الأولاد', 'الكرة'],
+                correct: ['ركل', 'الأولاد', 'الكرة'],
                 verb: 'ركل',
-                subject: 'الأولادُ',
+                subject: 'الأولاد',
                 subjectType: 'جمع تكسير مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الذي يدل على الركل، ثم من قام بالركل'
             },
             {
-                words: ['شرحت', 'المعلماتُ', 'الدرس'],
-                correct: ['شرحت', 'المعلماتُ', 'الدرس'],
+                words: ['شرحت', 'المعلمات', 'الدرس'],
+                correct: ['شرحت', 'المعلمات', 'الدرس'],
                 verb: 'شرحت',
-                subject: 'المعلماتُ',
+                subject: 'المعلمات',
                 subjectType: 'جمع مؤنث سالم مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للشرح، ثم من قمن بالشرح'
             },
             {
-                words: ['قرأ', 'الطالبُ', 'الكتاب'],
-                correct: ['قرأ', 'الطالبُ', 'الكتاب'],
+                words: ['قرأ', 'الطالب', 'الكتاب'],
+                correct: ['قرأ', 'الطالب', 'الكتاب'],
                 verb: 'قرأ',
-                subject: 'الطالبُ',
+                subject: 'الطالب',
                 subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للقراءة، ثم من قام بالقراءة'
             },
             {
-                words: ['كتبت', 'المعلماتُ', 'الدرس'],
-                correct: ['كتبت', 'المعلماتُ', 'الدرس'],
+                words: ['كتبت', 'المعلمات', 'الدرس'],
+                correct: ['كتبت', 'المعلمات', 'الدرس'],
                 verb: 'كتبت',
-                subject: 'المعلماتُ',
+                subject: 'المعلمات',
                 subjectType: 'جمع مؤنث سالم مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للكتابة، ثم من قمن بالكتابة'
             },
@@ -992,18 +903,18 @@
                 hint: 'ابدأ بالفعل الماضي للدرس، ثم من قام بالدرس'
             },
             {
-                words: ['يلعب', 'الأولادُ', 'في', 'الحديقة'],
-                correct: ['يلعب', 'الأولادُ', 'في', 'الحديقة'],
+                words: ['يلعب', 'الأولاد', 'في', 'الحديقة'],
+                correct: ['يلعب', 'الأولاد', 'في', 'الحديقة'],
                 verb: 'يلعب',
-                subject: 'الأولادُ',
+                subject: 'الأولاد',
                 subjectType: 'جمع تكسير مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل المضارع للعب، ثم من يقوم باللعب'
             },
             {
-                words: ['تكتب', 'البنتُ', 'الواجب'],
-                correct: ['تكتب', 'البنتُ', 'الواجب'],
+                words: ['تكتب', 'البنت', 'الواجب'],
+                correct: ['تكتب', 'البنت', 'الواجب'],
                 verb: 'تكتب',
-                subject: 'البنتُ',
+                subject: 'البنت',
                 subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل المضارع للكتابة، ثم من تقوم بالكتابة'
             }
@@ -1034,8 +945,9 @@
             document.getElementById('hint-area').classList.add('hidden');
             document.getElementById('word-game-result').classList.add('hidden');
 
-            // Shuffle words
-            const shuffledWords = [...currentGame.words].sort(() => Math.random() - 0.5);
+            // Clean and shuffle words
+            const cleanedWords = currentGame.words.map(word => word.trim());
+            const shuffledWords = [...cleanedWords].sort(() => Math.random() - 0.5);
 
             // Create word elements
             shuffledWords.forEach(word => {
@@ -1063,7 +975,6 @@
             wordElement.dataset.word = word;
             wordElement.addEventListener('click', () => removeWordFromSentence(wordElement));
             sentenceArea.appendChild(wordElement);
-
             currentSentenceWords.push(word);
 
             // Mark as selected

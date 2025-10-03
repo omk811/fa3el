@@ -139,7 +139,7 @@
         }
 
         .interactive-example {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
             border: 2px solid var(--secondary-color);
             border-radius: 16px;
             padding: 20px;
@@ -152,7 +152,7 @@
         .interactive-example:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
         }
 
         .interactive-example.active {
@@ -505,15 +505,7 @@
                 </div>
 
                 <div class="example-box">
-                    <h4>4️⃣ جمع المذكر السالم</h4>
-                    <p>يرفع بالواو والنون</p>
-                    <p style="margin-top: 10px;">
-                        مثال: <span class="highlight-verb">جاء</span> <span class="highlight-subject">المعلمون</span>
-                    </p>
-                </div>
-
-                <div class="example-box">
-                    <h4>5️⃣ الضمائر المتصلة</h4>
+                    <h4>4️⃣ الضمائر المتصلة</h4>
                     <p>مبنية في محل رفع فاعل</p>
                     <p style="margin-top: 10px;">
                         مثال: <span class="highlight-verb">لعب</span><span class="highlight-subject">تُ</span>
@@ -521,7 +513,7 @@
                 </div>
 
                 <div class="example-box">
-                    <h4>6️⃣ الضمير المستتر</h4>
+                    <h4>5️⃣ الضمير المستتر</h4>
                     <p>ضمير مخفي يُقدر</p>
                     <p style="margin-top: 10px;">
                         مثال: <span class="highlight-verb">يلعب</span> (هو)
@@ -576,9 +568,25 @@
                 </div>
 
                 <!-- Example 6 -->
-                <div class="interactive-example" onclick="highlightExample(this, 'جاء', 'المعلمون', 'جمع مذكر سالم مرفوع بالواو والنون')">
+                <div class="interactive-example" onclick="highlightExample(this, 'قرأ', 'الطالبُ', 'اسم مفرد مرفوع بالضمة الظاهرة')">
                     <p class="text-xl text-center font-semibold">
-                        <span class="verb-part">جاء</span> <span class="subject-part">المعلمون</span> إلى المدرسة
+                        <span class="verb-part">قرأ</span> <span class="subject-part">الطالبُ</span> الكتاب
+                    </p>
+                    <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
+                </div>
+
+                <!-- Example 7 -->
+                <div class="interactive-example" onclick="highlightExample(this, 'كتبت', 'المعلماتُ', 'جمع مؤنث سالم مرفوع بالضمة الظاهرة')">
+                    <p class="text-xl text-center font-semibold">
+                        <span class="verb-part">كتبت</span> <span class="subject-part">المعلماتُ</span> الدرس
+                    </p>
+                    <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
+                </div>
+
+                <!-- Example 8 -->
+                <div class="interactive-example" onclick="highlightExample(this, 'درس', 'نا', 'ضمير متصل مبني في محل رفع فاعل')">
+                    <p class="text-xl text-center font-semibold">
+                        <span class="verb-part">درس</span><span class="subject-part">نا</span> اليوم
                     </p>
                     <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل</p>
                 </div>
@@ -621,8 +629,8 @@
                 <!-- Question 3 -->
                 <div id="question3" class="quiz-question hidden">
                     <div style="background: linear-gradient(45deg, var(--danger-color), var(--warning-color)); color: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
-                        <p class="text-xl mb-4 text-center">في الجملة: "لعبوا في الحديقة"</p>
-                        <p class="text-lg mb-4 text-center font-semibold">ما إعراب الواو في "لعبوا"؟</p>
+                        <p class="text-xl mb-4 text-center">في الجملة: "لعبنا في الحديقة"</p>
+                        <p class="text-lg mb-4 text-center font-semibold">ما إعراب "نا" في "لعبنا"؟</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -634,14 +642,14 @@
                 <!-- Question 4 -->
                 <div id="question4" class="quiz-question hidden">
                     <div style="background: linear-gradient(45deg, var(--warning-color), var(--accent-color)); color: var(--dark-color); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
-                        <p class="text-xl mb-4 text-center">في الجملة: "جاء المعلمون إلى الفصل"</p>
-                        <p class="text-lg mb-4 text-center font-semibold">كيف يُرفع الفاعل "المعلمون"؟</p>
+                        <p class="text-xl mb-4 text-center">في الجملة: "قرأ الطالب الكتاب"</p>
+                        <p class="text-lg mb-4 text-center font-semibold">ما نوع الفاعل "الطالب"؟</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 4)">بالضمة الظاهرة</button>
-                        <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 4)">بالواو والنون</button>
-                        <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 4)">بالألف والنون</button>
+                        <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 4)">اسم مفرد</button>
+                        <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 4)">جمع تكسير</button>
+                        <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 4)">ضمير متصل</button>
                     </div>
                 </div>
 
@@ -652,8 +660,8 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 5)">لعبت البنات</button>
-                        <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 5)">يدرس بجد</button>
+                        <button class="quiz-option touch-target" onclick="checkAnswer(this, false, 5)">قرأت المعلمات الدرس</button>
+                        <button class="quiz-option touch-target" onclick="checkAnswer(this, true, 5)">يكتب بجد</button>
                     </div>
                 </div>
 
@@ -779,7 +787,6 @@
                     <div>
                         <p>مفرد - جمع تكسير - جمع مؤنث سالم</p>
                         <p>يرفع بالضمة الظاهرة</p>
-                        <p style="margin-top: 10px;">جمع مذكر سالم: بالواو والنون</p>
                     </div>
                 </div>
 
@@ -849,16 +856,16 @@
                 wrong: "لا يوجد اسم ظاهر في الجملة، الفاعل مستتر"
             },
             3: {
-                correct: "الواو ضمير متصل يدل على الجماعة، مبني في محل رفع فاعل",
-                wrong: "الواو هنا ليست حرف عطف بل ضمير متصل"
+                correct: "نا ضمير متصل مبني في محل رفع فاعل",
+                wrong: "نا ضمير متصل وليس حرف عطف"
             },
             4: {
-                correct: "المعلمون جمع مذكر سالم يرفع بالواو والنون",
-                wrong: "جمع المذكر السالم يرفع بالواو والنون وليس بالضمة"
+                correct: "الطالب اسم مفرد مرفوع بالضمة الظاهرة",
+                wrong: "الطالب ليس جمع تكسير أو ضمير متصل"
             },
             5: {
-                correct: "يدرس فعل مضارع فاعله ضمير مستتر تقديره (هو)",
-                wrong: "لعبت البنات فاعلها اسم ظاهر وليس ضمير مستتر"
+                correct: "يكتب فعل مضارع فاعله ضمير مستتر تقديره (هو)",
+                wrong: "قرأت المعلمات فاعلها اسم ظاهر وليس ضمير مستتر"
             },
             6: {
                 correct: "نا ضمير متصل مبني في محل رفع فاعل",
@@ -959,84 +966,84 @@
 
         const wordGameSentences = [
             {
-                words: ['يلعب', 'الأطفال', 'في', 'الحديقة'],
-                correct: ['يلعب', 'الأطفال', 'في', 'الحديقة'],
-                verb: 'يلعب',
-                subject: 'الأطفال',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الذي يدل على اللعب، ثم من يقوم باللعب'
+                words: ['لعب', 'الولدُ', 'في', 'الحديقة'],
+                correct: ['لعب', 'الولدُ', 'في', 'الحديقة'],
+                verb: 'لعب',
+                subject: 'الولدُ',
+                subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
+                hint: 'ابدأ بالفعل الذي يدل على اللعب، ثم من قام باللعب'
             },
             {
-                words: ['قرأت', 'البنت', 'الكتاب'],
-                correct: ['قرأت', 'البنت', 'الكتاب'],
+                words: ['قرأت', 'البنتُ', 'الكتاب'],
+                correct: ['قرأت', 'البنتُ', 'الكتاب'],
                 verb: 'قرأت',
-                subject: 'البنت',
-                subjectType: 'اسم ظاهر (مفرد)',
+                subject: 'البنتُ',
+                subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للقراءة، ثم من قامت بالقراءة'
             },
             {
-                words: ['لعبت', 'البنات', 'في', 'الحديقة'],
-                correct: ['لعبت', 'البنات', 'في', 'الحديقة'],
+                words: ['لعبت', 'البناتُ', 'في', 'الحديقة'],
+                correct: ['لعبت', 'البناتُ', 'في', 'الحديقة'],
                 verb: 'لعبت',
-                subject: 'البنات',
-                subjectType: 'اسم ظاهر (جمع مؤنث سالم)',
+                subject: 'البناتُ',
+                subjectType: 'جمع مؤنث سالم مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للعب، ثم من قمن باللعب'
             },
             {
-                words: ['ركل', 'الأولاد', 'الكرة'],
-                correct: ['ركل', 'الأولاد', 'الكرة'],
+                words: ['ركل', 'الأولادُ', 'الكرة'],
+                correct: ['ركل', 'الأولادُ', 'الكرة'],
                 verb: 'ركل',
-                subject: 'الأولاد',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
+                subject: 'الأولادُ',
+                subjectType: 'جمع تكسير مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الذي يدل على الركل، ثم من قام بالركل'
             },
             {
-                words: ['شرحت', 'المعلمات', 'الدرس'],
-                correct: ['شرحت', 'المعلمات', 'الدرس'],
+                words: ['شرحت', 'المعلماتُ', 'الدرس'],
+                correct: ['شرحت', 'المعلماتُ', 'الدرس'],
                 verb: 'شرحت',
-                subject: 'المعلمات',
-                subjectType: 'اسم ظاهر (جمع مؤنث سالم)',
+                subject: 'المعلماتُ',
+                subjectType: 'جمع مؤنث سالم مرفوع بالضمة الظاهرة',
                 hint: 'ابدأ بالفعل الماضي للشرح، ثم من قمن بالشرح'
             },
             {
-                words: ['جاء', 'المعلمون', 'إلى', 'المدرسة'],
-                correct: ['جاء', 'المعلمون', 'إلى', 'المدرسة'],
-                verb: 'جاء',
-                subject: 'المعلمون',
-                subjectType: 'اسم ظاهر (جمع مذكر سالم)',
-                hint: 'ابدأ بالفعل الماضي للمجيء، ثم من جاء'
+                words: ['قرأ', 'الطالبُ', 'الكتاب'],
+                correct: ['قرأ', 'الطالبُ', 'الكتاب'],
+                verb: 'قرأ',
+                subject: 'الطالبُ',
+                subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
+                hint: 'ابدأ بالفعل الماضي للقراءة، ثم من قام بالقراءة'
             },
             {
-                words: ['كتب', 'الطالب', 'الواجب', 'بعناية'],
-                correct: ['كتب', 'الطالب', 'الواجب', 'بعناية'],
-                verb: 'كتب',
-                subject: 'الطالب',
-                subjectType: 'اسم ظاهر (مفرد)',
-                hint: 'ابدأ بالفعل الماضي للكتابة، ثم من كتب'
+                words: ['كتبت', 'المعلماتُ', 'الدرس'],
+                correct: ['كتبت', 'المعلماتُ', 'الدرس'],
+                verb: 'كتبت',
+                subject: 'المعلماتُ',
+                subjectType: 'جمع مؤنث سالم مرفوع بالضمة الظاهرة',
+                hint: 'ابدأ بالفعل الماضي للكتابة، ثم من قمن بالكتابة'
             },
             {
-                words: ['سافرت', 'الأسر', 'في', 'الإجازة'],
-                correct: ['سافرت', 'الأسر', 'في', 'الإجازة'],
-                verb: 'سافرت',
-                subject: 'الأسر',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الماضي للسفر، ثم من سافر'
+                words: ['درس', 'نا', 'الدرس', 'بجد'],
+                correct: ['درس', 'نا', 'الدرس', 'بجد'],
+                verb: 'درس',
+                subject: 'نا',
+                subjectType: 'ضمير متصل مبني في محل رفع فاعل',
+                hint: 'ابدأ بالفعل الماضي للدرس، ثم من قام بالدرس'
             },
             {
-                words: ['تدرس', 'الطالبات', 'بجد', 'واجتهاد'],
-                correct: ['تدرس', 'الطالبات', 'بجد', 'واجتهاد'],
-                verb: 'تدرس',
-                subject: 'الطالبات',
-                subjectType: 'اسم ظاهر (جمع مؤنث سالم)',
-                hint: 'ابدأ بالفعل المضارع للدراسة، ثم من تدرس'
+                words: ['يلعب', 'الأولادُ', 'في', 'الحديقة'],
+                correct: ['يلعب', 'الأولادُ', 'في', 'الحديقة'],
+                verb: 'يلعب',
+                subject: 'الأولادُ',
+                subjectType: 'جمع تكسير مرفوع بالضمة الظاهرة',
+                hint: 'ابدأ بالفعل المضارع للعب، ثم من يقوم باللعب'
             },
             {
-                words: ['نام', 'الأطفال', 'مبكراً', 'الليلة'],
-                correct: ['نام', 'الأطفال', 'مبكراً', 'الليلة'],
-                verb: 'نام',
-                subject: 'الأطفال',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الماضي للنوم، ثم من نام'
+                words: ['تكتب', 'البنتُ', 'الواجب'],
+                correct: ['تكتب', 'البنتُ', 'الواجب'],
+                verb: 'تكتب',
+                subject: 'البنتُ',
+                subjectType: 'اسم مفرد مرفوع بالضمة الظاهرة',
+                hint: 'ابدأ بالفعل المضارع للكتابة، ثم من تقوم بالكتابة'
             }
         ];
 

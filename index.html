@@ -1,1791 +1,418 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الفاعل - الصف الخامس</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            box-sizing: border-box;
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-            min-height: 100vh;
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        
-        .bounce-in {
-            animation: bounceIn 0.8s ease-out;
-        }
-        
-        @keyframes bounceIn {
-            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(5deg); }
-            70% { transform: scale(0.9) rotate(-2deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        
-        /* تحسينات إضافية للوضوح والتفاعل */
-        .interactive-example:hover {
-            transform: translateY(-8px) scale(1.02) !important;
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3) !important;
-            border-color: rgba(59, 130, 246, 0.6) !important;
-        }
-        
-        /* تحسين التباين للنصوص */
-        .text-gray-800 {
-            color: #1f2937 !important;
-            font-weight: 600 !important;
-        }
-        
-        .text-gray-700 {
-            color: #374151 !important;
-            font-weight: 500 !important;
-        }
-        
-        /* تحسين الحدود والظلال */
-        .border-2 {
-            border-width: 3px !important;
-        }
-        
-        .shadow-lg {
-            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        /* تحسين التركيز للوصولية */
-        button:focus, .word-clickable:focus {
-            outline: 4px solid #3b82f6 !important;
-            outline-offset: 2px !important;
-        }
-        
-        /* تحسين للشاشات فائقة الكبر */
-        @media (min-width: 2560px) {
-            body {
-                font-size: 32px !important;
-            }
-            
-            h1 {
-                font-size: 8rem !important;
-            }
-            
-            h2 {
-                font-size: 5rem !important;
-            }
-            
-            button {
-                font-size: 2.5rem !important;
-                padding: 2rem 4rem !important;
-                min-height: 6rem !important;
-            }
-            
-            .word-clickable, .word-item, .sentence-word {
-                font-size: 3rem !important;
-                padding: 2rem 4rem !important;
-                min-height: 6rem !important;
-            }
-        }
-        
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .highlight-verb {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        .highlight-subject {
-            background: linear-gradient(45deg, #48cae4, #023e8a);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        .card-3d {
-            transform-style: preserve-3d;
-            transition: all 0.5s ease;
-        }
-        
-        .card-3d:hover {
-            transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #1e40af, #059669, #dc2626);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .pulse-glow {
-            animation: pulseGlow 2s infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(255, 107, 107, 0.8); }
-        }
-        
-        .interactive-example {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.9));
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .interactive-example:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-
-        .exercise-nav-btn.active {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-    </style>
-</head>
-<body>
-    <div class="min-h-screen py-8">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <!-- Header with floating animation -->
-            <div class="text-center mb-12 float-animation">
-                <div class="glass-effect rounded-3xl p-8 mb-8">
-                    <h1 class="text-6xl font-bold gradient-text mb-4">🌟 الفاعل 🌟</h1>
-                    <p class="text-2xl text-gray-700 font-semibold">للصف الخامس الأساسي</p>
-                    <div class="mt-4 flex justify-center space-x-4">
-                        <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">نحو</span>
-                        <span class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">تفاعلي</span>
-                        <span class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md">ممتع</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Introduction Section with new design -->
-            <div class="glass-effect rounded-3xl p-8 mb-12 card-3d">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">📚 تعريف الفاعل</h2>
-                
-                <!-- تذكير سريع عن الفعل -->
-                <div class="mb-8">
-                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 rounded-2xl border-2 border-blue-200 shadow-lg">
-                        <h3 class="text-xl font-bold text-white mb-3">💡 تذكير: الفعل</h3>
-                        <p class="text-white text-lg">
-                            الفعل كلمة تدل على عمل أو حدث (ماضي - مضارع - أمر)
-                        </p>
-                        <div class="mt-3 flex flex-wrap gap-2">
-                            <span class="highlight-verb text-sm">كتب</span>
-                            <span class="highlight-verb text-sm">يكتب</span>
-                            <span class="highlight-verb text-sm">اكتب</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- الفاعل -->
-                <div class="bg-gradient-to-br from-green-500 to-teal-600 p-8 rounded-2xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-white mb-4">👤 الفاعل</h3>
-                    <div class="bg-white bg-opacity-95 p-6 rounded-xl mb-6 border-2 border-green-200 shadow-md">
-                        <p class="text-gray-800 text-xl leading-relaxed font-semibold">
-                            الفاعل: <strong class="text-green-700">اسم مرفوع يأتي بعد الفعل ليدل على من قام بالفعل ويكون مرفوعاً بالضمة</strong>
-                        </p>
-                    </div>
-                    
-                    <h4 class="text-xl font-bold text-white mb-4">حالات الفاعل:</h4>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="bg-white bg-opacity-90 p-4 rounded-xl border-2 border-blue-200 shadow-md">
-                            <h5 class="font-bold text-blue-700 mb-2">1️⃣ الاسم المفرد</h5>
-                            <p class="text-gray-700 text-sm mb-2">يرفع بالضمة الظاهرة</p>
-                            <div class="bg-blue-50 p-2 rounded border border-blue-200">
-                                <p class="text-gray-800 text-sm">لعب <span class="highlight-subject text-xs">الولدُ</span></p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-90 p-4 rounded-xl border-2 border-green-200 shadow-md">
-                            <h5 class="font-bold text-green-700 mb-2">2️⃣ جمع التكسير</h5>
-                            <p class="text-gray-700 text-sm mb-2">يرفع بالضمة الظاهرة</p>
-                            <div class="bg-green-50 p-2 rounded border border-green-200">
-                                <p class="text-gray-800 text-sm">لعب <span class="highlight-subject text-xs">الأولادُ</span></p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-90 p-4 rounded-xl border-2 border-purple-200 shadow-md">
-                            <h5 class="font-bold text-purple-700 mb-2">3️⃣ جمع المؤنث السالم</h5>
-                            <p class="text-gray-700 text-sm mb-2">يرفع بالضمة الظاهرة</p>
-                            <div class="bg-purple-50 p-2 rounded border border-purple-200">
-                                <p class="text-gray-800 text-sm">لعبت <span class="highlight-subject text-xs">البناتُ</span></p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-90 p-4 rounded-xl border-2 border-orange-200 shadow-md">
-                            <h5 class="font-bold text-orange-700 mb-2">4️⃣ الضمائر المتصلة</h5>
-                            <p class="text-gray-700 text-sm mb-2">مبني في محل رفع فاعل</p>
-                            <div class="bg-orange-50 p-2 rounded border border-orange-200">
-                                <p class="text-gray-800 text-sm">لعب<span class="highlight-subject text-xs">تُ</span></p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white bg-opacity-90 p-4 rounded-xl border-2 border-teal-200 shadow-md">
-                            <h5 class="font-bold text-teal-700 mb-2">5️⃣ الضمير المستتر</h5>
-                            <p class="text-gray-700 text-sm mb-2">ضمير مخفي يُقدر</p>
-                            <div class="bg-teal-50 p-2 rounded border border-teal-200">
-                                <p class="text-gray-800 text-sm">يلعب (هو)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive Examples Section - Enhanced -->
-            <div class="glass-effect rounded-3xl p-8 mb-12 card-3d">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">🎯 أمثلة تفاعلية على حالات الفاعل</h2>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Example 1 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'لعب', 'الولدُ', 'اسم مفرد مرفوع بالضمة الظاهرة')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">لعب</span> <span class="subject-part">الولدُ</span> في الحديقة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (اسم مفرد)</p>
-                    </div>
-                    
-                    <!-- Example 2 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'لعب', 'الأولادُ', 'جمع تكسير مرفوع بالضمة الظاهرة')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">لعب</span> <span class="subject-part">الأولادُ</span> في الحديقة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (جمع تكسير)</p>
-                    </div>
-                    
-                    <!-- Example 3 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'لعبت', 'البناتُ', 'جمع مؤنث سالم مرفوع بالضمة الظاهرة')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">لعبت</span> <span class="subject-part">البناتُ</span> في الحديقة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (جمع مؤنث سالم)</p>
-                    </div>
-                    
-                    <!-- Example 4 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'لعبت', 'التاء', 'ضمير متصل مبني في محل رفع فاعل')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">لعب</span><span class="subject-part">تُ</span> في الحديقة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (ضمير متصل)</p>
-                    </div>
-                    
-                    <!-- Example 5 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'يلعب', 'هو (مستتر)', 'ضمير مستتر تقديره (هو)')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">يلعب</span> في الحديقة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (ضمير مستتر)</p>
-                    </div>
-                    
-                    <!-- Example 6 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'جاء', 'المعلمُ', 'اسم مفرد مرفوع بالضمة الظاهرة')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">جاء</span> <span class="subject-part">المعلمُ</span> إلى المدرسة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (اسم مفرد)</p>
-                    </div>
-                    
-                    <!-- Example 7 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'قرأت', 'الطالبةُ', 'اسم مفرد مرفوع بالضمة الظاهرة')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">قرأت</span> <span class="subject-part">الطالبةُ</span> الكتاب
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (اسم مفرد)</p>
-                    </div>
-                    
-                    <!-- Example 8 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'كتبوا', 'الواو', 'ضمير متصل مبني في محل رفع فاعل')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">كتب</span><span class="subject-part">وا</span> الواجب
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (ضمير متصل)</p>
-                    </div>
-                    
-                    <!-- Example 9 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'تدرس', 'هي (مستتر)', 'ضمير مستتر تقديره (هي)')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">تدرس</span> بجد
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (ضمير مستتر)</p>
-                    </div>
-                    
-                    <!-- Example 10 -->
-                    <div class="interactive-example p-6 rounded-2xl cursor-pointer" onclick="highlightPartsWithType(this, 'سافرت', 'الأسرُ', 'جمع تكسير مرفوع بالضمة الظاهرة')">
-                        <p class="text-xl text-center text-gray-800 font-semibold">
-                            <span class="verb-part">سافرت</span> <span class="subject-part">الأسرُ</span> في الإجازة
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">اضغط لإظهار الفعل والفاعل (جمع تكسير)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Comprehensive Exercises Section -->
-            <div class="glass-effect rounded-3xl p-8 mb-12 card-3d">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">📚 التدريبات الشاملة</h2>
-                
-                <!-- Exercise Navigation -->
-                <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <button onclick="showExercise('identify')" class="exercise-nav-btn bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-all duration-300 font-bold shadow-lg border-2 border-blue-500 active">
-                        🔍 تحديد الفاعل
-                    </button>
-                    <button onclick="showExercise('classify')" class="exercise-nav-btn bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-all duration-300 font-bold shadow-lg border-2 border-green-500">
-                        📝 تصنيف الفاعل
-                    </button>
-                    <button onclick="showExercise('complete')" class="exercise-nav-btn bg-purple-600 text-white px-6 py-3 rounded-xl hover:bg-purple-700 transition-all duration-300 font-bold shadow-lg border-2 border-purple-500">
-                        ✏️ إكمال الجمل
-                    </button>
-                    <button onclick="showExercise('correct')" class="exercise-nav-btn bg-orange-600 text-white px-6 py-3 rounded-xl hover:bg-orange-700 transition-all duration-300 font-bold shadow-lg border-2 border-orange-500">
-                        🔧 تصحيح الأخطاء
-                    </button>
-                </div>
-
-                <!-- Exercise 1: Identify Subject -->
-                <div id="identify-exercise" class="exercise-section">
-                    <div class="bg-white border-2 border-blue-400 p-8 rounded-2xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">🔍 تدريب تحديد الفاعل</h3>
-                        <p class="text-gray-700 text-lg mb-6 text-center">اقرأ الجملة واضغط على الفاعل</p>
-                        
-                        <div id="identify-container">
-                            <div class="bg-blue-50 p-6 rounded-xl mb-6 border-2 border-blue-200">
-                                <p class="text-xl text-center text-gray-800 mb-4" id="identify-sentence">
-                                    <span class="word-clickable" data-type="verb">لعب</span>
-                                    <span class="word-clickable" data-type="subject">الأطفال</span>
-                                    <span class="word-clickable" data-type="other">في</span>
-                                    <span class="word-clickable" data-type="other">الحديقة</span>
-                                </p>
-                                <div id="identify-feedback" class="text-center hidden"></div>
-                            </div>
-                            
-                            <div class="text-center">
-                                <button onclick="nextIdentifyExercise()" class="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition-colors font-bold shadow-lg">
-                                    الجملة التالية ➡️
-                                </button>
-                                <button onclick="resetIdentifyExercise()" class="bg-gray-600 text-white px-8 py-3 rounded-xl hover:bg-gray-700 transition-colors font-bold shadow-lg mr-4">
-                                    إعادة المحاولة 🔄
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exercise 2: Classify Subject -->
-                <div id="classify-exercise" class="exercise-section hidden">
-                    <div class="bg-white border-2 border-green-400 p-8 rounded-2xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-green-700 mb-6 text-center">📝 تدريب تصنيف الفاعل</h3>
-                        <p class="text-gray-700 text-lg mb-6 text-center">حدد نوع الفاعل في الجملة التالية</p>
-                        
-                        <div id="classify-container">
-                            <div class="bg-green-50 p-6 rounded-xl mb-6 border-2 border-green-200">
-                                <p class="text-xl text-center text-gray-800 mb-4" id="classify-sentence">
-                                    لعبت <span class="highlight-subject">البنات</span> في الحديقة
-                                </p>
-                                <p class="text-lg text-center text-green-700 mb-4">ما نوع الفاعل "البنات"؟</p>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                                <button class="classify-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="false">
-                                    اسم مفرد
-                                </button>
-                                <button class="classify-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="true">
-                                    جمع مؤنث سالم
-                                </button>
-                                <button class="classify-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="false">
-                                    جمع تكسير
-                                </button>
-                                <button class="classify-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="false">
-                                    ضمير متصل
-                                </button>
-                                <button class="classify-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="false">
-                                    ضمير مستتر
-                                </button>
-                            </div>
-                            
-                            <div id="classify-feedback" class="text-center hidden mb-4"></div>
-                            
-                            <div class="text-center">
-                                <button onclick="nextClassifyExercise()" class="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition-colors font-bold shadow-lg">
-                                    الجملة التالية ➡️
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exercise 3: Complete Sentences -->
-                <div id="complete-exercise" class="exercise-section hidden">
-                    <div class="bg-white border-2 border-purple-400 p-8 rounded-2xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-purple-700 mb-6 text-center">✏️ تدريب إكمال الجمل</h3>
-                        <p class="text-gray-700 text-lg mb-6 text-center">اختر الفاعل المناسب لإكمال الجملة</p>
-                        
-                        <div id="complete-container">
-                            <div class="bg-purple-50 p-6 rounded-xl mb-6 border-2 border-purple-200">
-                                <p class="text-xl text-center text-gray-800 mb-4" id="complete-sentence">
-                                    لعب _______ في الحديقة
-                                </p>
-                                <p class="text-sm text-center text-purple-600">اختر الفاعل المناسب</p>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                                <button class="complete-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="true" data-type="جمع تكسير">
-                                    الأولاد
-                                </button>
-                                <button class="complete-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="false">
-                                    في المدرسة
-                                </button>
-                                <button class="complete-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="true" data-type="اسم مفرد">
-                                    الطفل
-                                </button>
-                                <button class="complete-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-answer="false">
-                                    بسرعة
-                                </button>
-                            </div>
-                            
-                            <div id="complete-feedback" class="text-center hidden mb-4"></div>
-                            
-                            <div class="text-center">
-                                <button onclick="nextCompleteExercise()" class="bg-purple-600 text-white px-8 py-3 rounded-xl hover:bg-purple-700 transition-colors font-bold shadow-lg">
-                                    الجملة التالية ➡️
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exercise 4: Correct Errors -->
-                <div id="correct-exercise" class="exercise-section hidden">
-                    <div class="bg-white border-2 border-orange-400 p-8 rounded-2xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-orange-700 mb-6 text-center">🔧 تدريب تصحيح الأخطاء</h3>
-                        <p class="text-gray-700 text-lg mb-6 text-center">اضغط على الكلمة الخاطئة وصححها</p>
-                        
-                        <div id="correct-container">
-                            <div class="bg-orange-50 p-6 rounded-xl mb-6 border-2 border-orange-200">
-                                <p class="text-xl text-center text-gray-800 mb-4" id="correct-sentence">
-                                    لعب <span class="error-word cursor-pointer bg-red-200 px-2 py-1 rounded" data-correct="الأطفالُ">الأطفالَ</span> في الحديقة
-                                </p>
-                                <p class="text-sm text-center text-orange-600">اضغط على الكلمة الخاطئة لتصحيحها</p>
-                            </div>
-                            
-                            <div id="correction-options" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 hidden">
-                                <button class="correction-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-correction="الأطفالُ">
-                                    الأطفالُ
-                                </button>
-                                <button class="correction-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-correction="الأطفالِ">
-                                    الأطفالِ
-                                </button>
-                                <button class="correction-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md" data-correction="الأطفالَ">
-                                    الأطفالَ (كما هي)
-                                </button>
-                            </div>
-                            
-                            <div id="correct-feedback" class="text-center hidden mb-4"></div>
-                            
-                            <div class="text-center">
-                                <button onclick="nextCorrectExercise()" class="bg-orange-600 text-white px-8 py-3 rounded-xl hover:bg-orange-700 transition-colors font-bold shadow-lg">
-                                    الجملة التالية ➡️
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- Exercise Progress -->
-                <div class="mt-8 text-center">
-                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-xl shadow-lg inline-block">
-                        <p class="text-lg font-bold">إجمالي النقاط: <span id="total-exercise-score">0</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Enhanced Quiz Section -->
-            <div class="glass-effect rounded-3xl p-8 mb-12 card-3d">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">🧩 اختبر معلوماتك</h2>
-                
-                <div id="quiz-container">
-                    <!-- Question 1 -->
-                    <div id="question1" class="quiz-question mb-8">
-                        <div class="bg-white border-2 border-purple-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">في الجملة: "لعبت البنات في الحديقة"</p>
-                            <p class="text-lg mb-4 text-center font-semibold text-purple-700">ما نوع الفاعل "البنات"؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 1)">
-                                اسم مفرد
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 1)">
-                                جمع مؤنث سالم
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 1)">
-                                جمع تكسير
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 2 -->
-                    <div id="question2" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-green-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">في الجملة: "يلعب في الحديقة"</p>
-                            <p class="text-lg mb-4 text-center font-semibold text-green-700">ما نوع الفاعل؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 2)">
-                                اسم ظاهر
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 2)">
-                                ضمير مستتر
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 2)">
-                                ضمير متصل
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 3 -->
-                    <div id="question3" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-red-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">في الجملة: "لعبوا في الحديقة"</p>
-                            <p class="text-lg mb-4 text-center font-semibold text-red-700">ما إعراب الواو في "لعبوا"؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-red-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 3)">
-                                ضمير متصل مبني في محل رفع فاعل
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-red-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 3)">
-                                حرف عطف
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 4 -->
-                    <div id="question4" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-orange-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">في الجملة: "جاء الطلاب إلى الفصل"</p>
-                            <p class="text-lg mb-4 text-center font-semibold text-orange-700">ما نوع الفاعل "الطلاب"؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 4)">
-                                اسم مفرد
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 4)">
-                                جمع تكسير
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 4)">
-                                جمع مؤنث سالم
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 5 -->
-                    <div id="question5" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-indigo-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">أي من الجمل التالية فاعلها ضمير مستتر؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-indigo-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 5)">
-                                لعبت البنات
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-indigo-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 5)">
-                                يدرس بجد
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 6 -->
-                    <div id="question6" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-pink-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">في الجملة: "كتبنا الدرس"</p>
-                            <p class="text-lg mb-4 text-center font-semibold text-pink-700">ما نوع الفاعل؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-pink-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 6)">
-                                ضمير متصل
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-pink-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 6)">
-                                ضمير مستتر
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-pink-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 6)">
-                                اسم ظاهر
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 7 -->
-                    <div id="question7" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-teal-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">ما إعراب كلمة "الطلاب" في الجملة: "نجح الطلاب"؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-teal-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 7)">
-                                فاعل مرفوع بالضمة الظاهرة
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-teal-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 7)">
-                                مفعول به منصوب
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Question 8 -->
-                    <div id="question8" class="quiz-question mb-8 hidden">
-                        <div class="bg-white border-2 border-blue-400 p-6 rounded-2xl mb-4 shadow-lg">
-                            <p class="text-xl mb-4 text-center text-gray-800">أي من الكلمات التالية يمكن أن تكون فاعلاً؟</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-blue-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 8)">
-                                في المدرسة
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-blue-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, true, 8)">
-                                الطالب
-                            </button>
-                            <button class="quiz-option bg-white border-2 border-gray-300 hover:border-blue-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg" onclick="checkAnswer(this, false, 8)">
-                                بسرعة
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Quiz Results -->
-                    <div id="quiz-result" class="text-center mt-6 hidden">
-                        <div id="correct-answer" class="bg-green-500 bg-opacity-80 text-white p-6 rounded-2xl hidden pulse-glow">
-                            <p class="text-2xl font-bold mb-2">🎉 إجابة صحيحة!</p>
-                            <p id="correct-explanation" class="text-lg"></p>
-                        </div>
-                        <div id="wrong-answer" class="bg-red-500 bg-opacity-80 text-white p-6 rounded-2xl hidden">
-                            <p class="text-2xl font-bold mb-2">❌ إجابة خاطئة</p>
-                            <p id="wrong-explanation" class="text-lg"></p>
-                        </div>
-                        <div class="mt-6 space-x-4">
-                            <button id="next-question" onclick="nextQuestion()" class="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition-colors font-semibold shadow-lg hidden">
-                                السؤال التالي ➡️
-                            </button>
-                            <button id="retry-question" onclick="resetCurrentQuestion()" class="bg-purple-600 text-white px-8 py-3 rounded-xl hover:bg-purple-700 transition-colors font-semibold shadow-lg hidden">
-                                جرب مرة أخرى 🔄
-                            </button>
-                            <button id="restart-quiz" onclick="restartQuiz()" class="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition-colors font-semibold shadow-lg hidden">
-                                ابدأ من جديد 🔄
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div id="quiz-complete" class="text-center mt-6 hidden">
-                        <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-8 rounded-2xl pulse-glow">
-                            <p class="text-3xl font-bold mb-4">🏆 أحسنت!</p>
-                            <p class="text-xl mb-2">لقد أكملت الاختبار بنجاح</p>
-                            <p class="text-lg">النتيجة: <span id="final-score" class="font-bold text-yellow-300"></span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Enhanced Word Game Section -->
-            <div class="glass-effect rounded-3xl p-8 mb-12 card-3d">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">🧩 تمرين تجميع الكلمات</h2>
-                
-                <div class="bg-white border-2 border-yellow-400 p-8 rounded-2xl shadow-lg">
-                    <!-- Instructions -->
-                    <div class="bg-yellow-50 border-2 border-yellow-300 p-6 rounded-xl mb-8 text-center shadow-md">
-                        <h3 class="text-xl font-bold text-yellow-800 mb-3">📋 التعليمات:</h3>
-                        <p class="text-gray-800 text-lg">اضغط على الكلمات بالترتيب الصحيح لتكوين جملة فعلية مفيدة</p>
-                        <p class="text-gray-700 text-sm mt-2">تذكر: الجملة الفعلية تبدأ بالفعل ثم الفاعل</p>
-                    </div>
-                    
-                    <div id="word-game-container">
-                        <!-- Game Progress -->
-                        <div class="text-center mb-6">
-                            <span class="bg-blue-100 border-2 border-blue-400 text-blue-800 px-6 py-2 rounded-full text-lg font-bold shadow-md">
-                                الجملة <span id="current-sentence-number">1</span> من <span id="total-sentences">10</span>
-                            </span>
-                        </div>
-                        
-                        <!-- Scattered Words -->
-                        <div class="mb-8">
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🔤 الكلمات المتاحة:</h3>
-                            <div id="scattered-words" class="flex flex-wrap gap-4 justify-center min-h-[120px] p-8 bg-blue-50 rounded-2xl border-2 border-blue-200 shadow-inner">
-                                <!-- Words will be populated by JavaScript -->
-                            </div>
-                        </div>
-                        
-                        <!-- Sentence Building Area -->
-                        <div class="mb-8">
-                            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">✏️ الجملة المكونة:</h3>
-                            <div id="sentence-area" class="min-h-[120px] p-8 bg-green-50 rounded-2xl border-2 border-dashed border-green-300 flex flex-wrap gap-4 items-center justify-center shadow-inner">
-                                <p class="text-gray-600 text-xl" id="drop-hint">👆 اضغط على الكلمات أعلاه لتكوين الجملة</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Control Buttons -->
-                        <div class="flex flex-wrap gap-4 justify-center mb-8">
-                            <button onclick="checkSentence()" class="bg-green-600 text-white px-8 py-4 rounded-2xl hover:bg-green-700 transition-all duration-300 font-bold shadow-lg transform hover:scale-105 border-2 border-green-500">
-                                ✅ تحقق من الجملة
-                            </button>
-                            <button onclick="clearSentence()" class="bg-gray-600 text-white px-8 py-4 rounded-2xl hover:bg-gray-700 transition-all duration-300 font-bold shadow-lg transform hover:scale-105 border-2 border-gray-500">
-                                🗑️ امسح الجملة
-                            </button>
-                            <button onclick="showHint()" class="bg-yellow-600 text-white px-8 py-4 rounded-2xl hover:bg-yellow-700 transition-all duration-300 font-bold shadow-lg transform hover:scale-105 border-2 border-yellow-500">
-                                💡 مساعدة
-                            </button>
-                            <button onclick="nextWordGame()" class="bg-blue-600 text-white px-8 py-4 rounded-2xl hover:bg-blue-700 transition-all duration-300 font-bold shadow-lg transform hover:scale-105 border-2 border-blue-500">
-                                ➡️ جملة جديدة
-                            </button>
-                        </div>
-                        
-                        <!-- Hint -->
-                        <div id="hint-area" class="hidden mb-6 p-6 bg-yellow-50 border-2 border-yellow-300 rounded-xl text-center shadow-md">
-                            <p class="text-yellow-800 font-bold text-lg">💡 تلميح:</p>
-                            <p id="hint-text" class="text-gray-800 text-lg mt-2"></p>
-                        </div>
-                        
-                        <!-- Result -->
-                        <div id="word-game-result" class="hidden mt-6 p-8 rounded-2xl text-center">
-                            <p id="word-game-feedback" class="text-2xl font-bold mb-4"></p>
-                            <div id="sentence-analysis" class="text-xl"></div>
-                        </div>
-                        
-                        <!-- Score -->
-                        <div class="text-center mt-6">
-                            <div class="bg-purple-100 border-2 border-purple-400 inline-block px-8 py-3 rounded-full shadow-md">
-                                <span class="text-purple-800 font-bold text-xl">النقاط: <span id="game-score">0</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Summary Section -->
-            <div class="glass-effect rounded-3xl p-8 text-center mb-12">
-                <h2 class="text-3xl font-bold mb-8 text-gray-800">📝 ملخص الدرس</h2>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- تعريف الفاعل -->
-                    <div class="bg-white border-2 border-purple-400 p-6 rounded-2xl shadow-lg">
-                        <h3 class="font-bold mb-4 text-2xl text-purple-700">👤 الفاعل</h3>
-                        <div class="space-y-3 text-lg text-gray-800">
-                            <p><strong>المعنى:</strong> اسم مرفوع يأتي بعد الفعل ليدل على من قام بالفعل</p>
-                            <p><strong>الحركة الإعرابية:</strong> مرفوع بالضمة (ُ)</p>
-                            <p><strong>مثال:</strong> لعب الولد<span class="text-purple-600">ُ</span></p>
-                        </div>
-                    </div>
-                    
-                    <!-- الاسم الظاهر -->
-                    <div class="bg-white border-2 border-blue-400 p-6 rounded-2xl shadow-lg">
-                        <h4 class="font-bold mb-4 text-xl text-blue-700">🔤 الاسم الظاهر</h4>
-                        <div class="text-gray-800">
-                            <p class="text-sm mb-2">مفرد - جمع تكسير - جمع مؤنث سالم</p>
-                            <p class="text-sm">يرفع بالضمة الظاهرة</p>
-                        </div>
-                    </div>
-                    
-                    <!-- الضمائر -->
-                    <div class="bg-white border-2 border-green-400 p-6 rounded-2xl shadow-lg">
-                        <h4 class="font-bold mb-4 text-xl text-green-700">🔗 الضمائر</h4>
-                        <div class="text-gray-800">
-                            <p class="text-sm mb-2">متصلة: تُ، نا، وا</p>
-                            <p class="text-sm">مستترة: هو، هي، أنت</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <p class="mt-8 text-2xl text-gray-800 font-bold">🌟 أحسنت! أنت الآن تعرف الفاعل وحالاته المختلفة 🌟</p>
-            </div>
-            
-            <!-- Teacher Credit -->
-            <div class="text-center glass-effect rounded-2xl p-6 mb-8">
-                <p class="text-xl font-semibold text-gray-800">📚 إعداد وتصميم:</p>
-                <p class="text-3xl font-bold gradient-text mt-2">الأستاذ خليل البلوشي</p>
-            </div>
-            
-            <!-- WhatsApp Channel Link -->
-            <div class="text-center glass-effect rounded-2xl p-8 mb-8">
-                <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 rounded-2xl shadow-lg">
-                    <h3 class="text-2xl font-bold text-white mb-4">📱 تابعنا على الواتساب</h3>
-                    <p class="text-white text-lg mb-6">انضم إلى قناتنا للحصول على المزيد من الدروس التفاعلية والمفيدة</p>
-                    <a href="https://whatsapp.com/channel/0029VamotBKCxoAy3fzUcv3T" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center bg-white text-green-600 px-8 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 font-bold text-xl shadow-lg transform hover:scale-105 border-2 border-white">
-                        <svg class="w-8 h-8 ml-3" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                        </svg>
-                        انضم إلى القناة
-                    </a>
-                    <p class="text-white text-sm mt-4 opacity-90">🌟 دروس تفاعلية • شروحات مبسطة • تمارين ممتعة</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let currentQuestion = 1;
-        let score = 0;
-        const totalQuestions = 8;
-        
-        // Exercise Variables
-        let totalExerciseScore = 0;
-        let currentIdentifyIndex = 0;
-        let currentClassifyIndex = 0;
-        let currentCompleteIndex = 0;
-        let currentCorrectIndex = 0;
-
-        // Exercise Data
-        const identifyExercises = [
-            {
-                sentence: ['لعب', 'الأطفال', 'في', 'الحديقة'],
-                types: ['verb', 'subject', 'other', 'other'],
-                subject: 'الأطفال',
-                subjectType: 'جمع تكسير'
-            },
-            {
-                sentence: ['قرأت', 'الطالبة', 'الكتاب', 'بعناية'],
-                types: ['verb', 'subject', 'other', 'other'],
-                subject: 'الطالبة',
-                subjectType: 'اسم مفرد'
-            },
-            {
-                sentence: ['كتبوا', 'الواجب', 'بعناية'],
-                types: ['verb-subject', 'other', 'other'],
-                subject: 'واو الجماعة في كتبوا',
-                subjectType: 'ضمير متصل'
-            },
-            {
-                sentence: ['تدرس', 'المعلمات', 'بجد', 'واجتهاد'],
-                types: ['verb', 'subject', 'other', 'other'],
-                subject: 'المعلمات',
-                subjectType: 'جمع مؤنث سالم'
-            },
-            {
-                sentence: ['يلعب', 'الطفل', 'في', 'الحديقة'],
-                types: ['verb', 'subject', 'other', 'other'],
-                subject: 'الطفل',
-                subjectType: 'اسم مفرد'
-            },
-            {
-                sentence: ['جاءت', 'الطالبات', 'إلى', 'المدرسة'],
-                types: ['verb', 'subject', 'other', 'other'],
-                subject: 'الطالبات',
-                subjectType: 'جمع مؤنث سالم'
-            },
-            {
-                sentence: ['نام', 'الأولاد', 'مبكراً'],
-                types: ['verb', 'subject', 'other'],
-                subject: 'الأولاد',
-                subjectType: 'جمع تكسير'
-            }
-        ];
-
-        const classifyExercises = [
-            {
-                sentence: 'لعبت <span class="highlight-subject">البنات</span> في الحديقة',
-                subject: 'البنات',
-                correct: 'جمع مؤنث سالم',
-                options: ['اسم مفرد', 'جمع مؤنث سالم', 'جمع تكسير', 'ضمير متصل', 'ضمير مستتر']
-            },
-            {
-                sentence: 'جاء <span class="highlight-subject">الطلاب</span> إلى المدرسة',
-                subject: 'الطلاب',
-                correct: 'جمع تكسير',
-                options: ['اسم مفرد', 'جمع مؤنث سالم', 'جمع تكسير', 'ضمير متصل', 'ضمير مستتر']
-            },
-            {
-                sentence: 'كتب<span class="highlight-subject">تُ</span> الدرس',
-                subject: 'التاء',
-                correct: 'ضمير متصل',
-                options: ['اسم مفرد', 'جمع مؤنث سالم', 'جمع تكسير', 'ضمير متصل', 'ضمير مستتر']
-            },
-            {
-                sentence: '<span class="highlight-subject">يدرس</span> بجد',
-                subject: 'ضمير مستتر (هو)',
-                correct: 'ضمير مستتر',
-                options: ['اسم مفرد', 'جمع مؤنث سالم', 'جمع تكسير', 'ضمير متصل', 'ضمير مستتر']
-            },
-            {
-                sentence: 'قرأ <span class="highlight-subject">المعلم</span> القصة',
-                subject: 'المعلم',
-                correct: 'اسم مفرد',
-                options: ['اسم مفرد', 'جمع مؤنث سالم', 'جمع تكسير', 'ضمير متصل', 'ضمير مستتر']
-            }
-        ];
-
-        const completeExercises = [
-            {
-                sentence: 'لعب _______ في الحديقة',
-                options: [
-                    {text: 'الأولاد', correct: true, type: 'جمع تكسير'},
-                    {text: 'في المدرسة', correct: false, type: ''},
-                    {text: 'الطفل', correct: true, type: 'اسم مفرد'},
-                    {text: 'بسرعة', correct: false, type: ''}
-                ]
-            },
-            {
-                sentence: 'قرأت _______ الكتاب',
-                options: [
-                    {text: 'الطالبات', correct: true, type: 'جمع مؤنث سالم'},
-                    {text: 'في المكتبة', correct: false, type: ''},
-                    {text: 'البنت', correct: true, type: 'اسم مفرد'},
-                    {text: 'بصوت عالٍ', correct: false, type: ''}
-                ]
-            },
-            {
-                sentence: 'جاء _______ إلى المدرسة',
-                options: [
-                    {text: 'المعلمون', correct: true, type: 'جمع مذكر سالم'},
-                    {text: 'مبكراً', correct: false, type: ''},
-                    {text: 'الطالب', correct: true, type: 'اسم مفرد'},
-                    {text: 'من البيت', correct: false, type: ''}
-                ]
-            }
-        ];
-
-        const correctExercises = [
-            {
-                sentence: 'لعب <span class="error-word cursor-pointer bg-red-200 px-2 py-1 rounded" data-correct="الأطفالُ">الأطفالَ</span> في الحديقة',
-                error: 'الأطفالَ',
-                correct: 'الأطفالُ',
-                explanation: 'الفاعل يرفع بالضمة، والصحيح هو "الأطفالُ"',
-                options: ['الأطفالُ', 'الأطفالِ', 'الأطفالَ (كما هي)']
-            },
-            {
-                sentence: 'قرأت <span class="error-word cursor-pointer bg-red-200 px-2 py-1 rounded" data-correct="الطالبةُ">الطالبةَ</span> الكتاب',
-                error: 'الطالبةَ',
-                correct: 'الطالبةُ',
-                explanation: 'الفاعل يرفع بالضمة، والصحيح هو "الطالبةُ"',
-                options: ['الطالبةُ', 'الطالبةِ', 'الطالبةَ (كما هي)']
-            },
-            {
-                sentence: 'جاء <span class="error-word cursor-pointer bg-red-200 px-2 py-1 rounded" data-correct="المعلمُ">المعلمَ</span> إلى الفصل',
-                error: 'المعلمَ',
-                correct: 'المعلمُ',
-                explanation: 'الفاعل يرفع بالضمة، والصحيح هو "المعلمُ"',
-                options: ['المعلمُ', 'المعلمِ', 'المعلمَ (كما هي)']
-            }
-        ];
-
-
-        
-        const questionData = {
-            1: {
-                correct: "البنات هو جمع مؤنث سالم، يرفع بالضمة الظاهرة",
-                wrong: "البنات جمع مؤنث سالم وليس اسم مفرد أو جمع تكسير"
-            },
-            2: {
-                correct: "الفاعل هنا ضمير مستتر تقديره (هو)",
-                wrong: "لا يوجد اسم ظاهر في الجملة، الفاعل مستتر"
-            },
-            3: {
-                correct: "الواو ضمير متصل يدل على الجماعة، مبني في محل رفع فاعل",
-                wrong: "الواو هنا ليست حرف عطف بل ضمير متصل"
-            },
-            4: {
-                correct: "الطلاب جمع تكسير يرفع بالضمة الظاهرة",
-                wrong: "الطلاب جمع تكسير وليس اسم مفرد أو جمع مؤنث سالم"
-            },
-            5: {
-                correct: "يدرس فعل مضارع فاعله ضمير مستتر تقديره (هو)",
-                wrong: "لعبت البنات فاعلها اسم ظاهر وليس ضمير مستتر"
-            },
-            6: {
-                correct: "نا ضمير متصل مبني في محل رفع فاعل",
-                wrong: "نا ضمير متصل وليس مستتر أو اسم ظاهر"
-            },
-            7: {
-                correct: "الطلاب فاعل مرفوع بالضمة الظاهرة لأنه جمع تكسير",
-                wrong: "الطلاب فاعل وليس مفعول به"
-            },
-            8: {
-                correct: "الطالب اسم يمكن أن يكون فاعلاً",
-                wrong: "في المدرسة وبسرعة ليستا أسماء بل ظروف وأحوال"
-            }
-        };
-
-        function highlightPartsWithType(element, verb, subject, type) {
-            const verbSpan = element.querySelector('.verb-part');
-            const subjectSpan = element.querySelector('.subject-part');
-            
-            verbSpan.classList.add('highlight-verb', 'bounce-in');
-            subjectSpan.classList.add('highlight-subject', 'bounce-in');
-            
-            // Add explanation with detailed parsing
-            let explanation = element.querySelector('.explanation');
-            if (!explanation) {
-                explanation = document.createElement('div');
-                explanation.className = 'explanation mt-6 p-6 bg-white bg-opacity-95 rounded-xl text-sm border-2 border-blue-300 shadow-lg';
-                
-                // Determine verb type and parsing
-                let verbParsing = '';
-                let subjectParsing = '';
-                
-                // Verb parsing based on the verb
-                if (verb === 'لعب' || verb === 'جاء' || verb === 'قرأت' || verb === 'لعبت' || verb === 'سافرت') {
-                    verbParsing = 'فعل ماضٍ مبني على الفتح';
-                } else if (verb === 'يلعب' || verb === 'تدرس') {
-                    verbParsing = 'فعل مضارع مرفوع بالضمة';
-                } else if (verb === 'لعبت' && subject === 'التاء') {
-                    verbParsing = 'فعل ماضٍ مبني على السكون لاتصاله بالتاء';
-                } else if (verb === 'كتبوا') {
-                    verbParsing = 'فعل ماضٍ مبني على الضم لاتصاله بواو الجماعة';
-                }
-                
-                // Subject parsing based on type
-                if (type.includes('اسم مفرد')) {
-                    subjectParsing = 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره';
-                } else if (type.includes('جمع تكسير')) {
-                    subjectParsing = 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره';
-                } else if (type.includes('جمع مؤنث سالم')) {
-                    subjectParsing = 'فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره';
-                } else if (type.includes('ضمير متصل')) {
-                    subjectParsing = 'ضمير متصل مبني في محل رفع فاعل';
-                } else if (type.includes('ضمير مستتر')) {
-                    subjectParsing = 'ضمير مستتر وجوباً تقديره (هو) في محل رفع فاعل';
-                    if (verb === 'تدرس') {
-                        subjectParsing = 'ضمير مستتر وجوباً تقديره (هي) في محل رفع فاعل';
-                    }
-                }
-                
-                explanation.innerHTML = `
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-red-50 p-4 rounded-lg border-2 border-red-200">
-                            <h4 class="font-bold text-red-700 mb-2 text-lg">🔴 إعراب الفعل:</h4>
-                            <p class="text-gray-800 mb-2"><span class="highlight-verb text-sm">${verb}</span></p>
-                            <p class="text-gray-700 text-sm font-semibold">${verbParsing}</p>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
-                            <h4 class="font-bold text-blue-700 mb-2 text-lg">🔵 إعراب الفاعل:</h4>
-                            <p class="text-gray-800 mb-2"><span class="highlight-subject text-sm">${subject}</span></p>
-                            <p class="text-gray-700 text-sm font-semibold">${subjectParsing}</p>
-                        </div>
-                    </div>
-                    <div class="mt-4 p-3 bg-green-50 rounded-lg border-2 border-green-200">
-                        <p class="text-green-800 font-bold text-center">💡 نوع الفاعل: ${type}</p>
-                    </div>
-                `;
-                element.appendChild(explanation);
-            }
-        }
-
-        // Exercise Functions
-        function showExercise(type) {
-            // Hide all exercises
-            document.querySelectorAll('.exercise-section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            
-            // Remove active class from all nav buttons
-            document.querySelectorAll('.exercise-nav-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-blue-700', 'bg-green-700', 'bg-purple-700', 'bg-orange-700', 'bg-red-700');
-            });
-            
-            // Show selected exercise and activate button
-            const exerciseSection = document.getElementById(`${type}-exercise`);
-            exerciseSection.classList.remove('hidden');
-            
-            // Activate corresponding button
-            event.target.classList.add('active');
-            
-            // Initialize the exercise
-            switch(type) {
-                case 'identify':
-                    initializeIdentifyExercise();
-                    break;
-                case 'classify':
-                    initializeClassifyExercise();
-                    break;
-                case 'complete':
-                    initializeCompleteExercise();
-                    break;
-                case 'correct':
-                    initializeCorrectExercise();
-                    break;
-            }
-        }
-
-        // Identify Exercise Functions
-        function initializeIdentifyExercise() {
-            loadIdentifyExercise();
-        }
-
-        function loadIdentifyExercise() {
-            const exercise = identifyExercises[currentIdentifyIndex];
-            const sentenceElement = document.getElementById('identify-sentence');
-            
-            sentenceElement.innerHTML = '';
-            exercise.sentence.forEach((word, index) => {
-                const span = document.createElement('span');
-                span.className = 'word-clickable px-3 py-2 mx-1 rounded-lg cursor-pointer hover:bg-blue-200 transition-all duration-300 border-2 border-transparent inline-block';
-                span.textContent = word;
-                span.dataset.type = exercise.types[index];
-                span.addEventListener('click', handleIdentifyClick);
-                sentenceElement.appendChild(span);
-                
-                // Add space between words except for the last word
-                if (index < exercise.sentence.length - 1) {
-                    sentenceElement.appendChild(document.createTextNode(' '));
-                }
-            });
-            
-            document.getElementById('identify-feedback').classList.add('hidden');
-        }
-
-        function handleIdentifyClick(e) {
-            const clickedType = e.target.dataset.type;
-            const exercise = identifyExercises[currentIdentifyIndex];
-            const feedbackElement = document.getElementById('identify-feedback');
-            
-            // Reset all word styles
-            document.querySelectorAll('.word-clickable').forEach(word => {
-                word.classList.remove('bg-green-500', 'bg-red-500', 'text-white');
-            });
-            
-            if (clickedType === 'subject' || clickedType === 'verb-subject') {
-                e.target.classList.add('bg-green-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-green-100 border-2 border-green-400 p-4 rounded-xl">
-                        <p class="text-green-800 font-bold text-lg">🎉 ممتاز! هذا هو الفاعل</p>
-                        <p class="text-green-700">"${exercise.subject}" - ${exercise.subjectType}</p>
-                    </div>
-                `;
-                totalExerciseScore += 10;
-                updateExerciseScore();
-            } else {
-                e.target.classList.add('bg-red-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-red-100 border-2 border-red-400 p-4 rounded-xl">
-                        <p class="text-red-800 font-bold text-lg">❌ هذه ليست الفاعل</p>
-                        <p class="text-red-700">الفاعل هو: "${exercise.subject}" - ${exercise.subjectType}</p>
-                    </div>
-                `;
-            }
-            
-            feedbackElement.classList.remove('hidden');
-        }
-
-        function nextIdentifyExercise() {
-            currentIdentifyIndex = (currentIdentifyIndex + 1) % identifyExercises.length;
-            loadIdentifyExercise();
-        }
-
-        function resetIdentifyExercise() {
-            loadIdentifyExercise();
-        }
-
-        // Classify Exercise Functions
-        function initializeClassifyExercise() {
-            loadClassifyExercise();
-        }
-
-        function loadClassifyExercise() {
-            const exercise = classifyExercises[currentClassifyIndex];
-            document.getElementById('classify-sentence').innerHTML = exercise.sentence;
-            
-            const container = document.getElementById('classify-container');
-            const optionsContainer = container.querySelector('.grid');
-            optionsContainer.innerHTML = '';
-            
-            exercise.options.forEach(option => {
-                const button = document.createElement('button');
-                button.className = 'classify-option bg-white border-2 border-gray-300 hover:border-green-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md';
-                button.textContent = option;
-                button.dataset.answer = option === exercise.correct ? 'true' : 'false';
-                button.addEventListener('click', handleClassifyClick);
-                optionsContainer.appendChild(button);
-            });
-            
-            document.getElementById('classify-feedback').classList.add('hidden');
-        }
-
-        function handleClassifyClick(e) {
-            const isCorrect = e.target.dataset.answer === 'true';
-            const exercise = classifyExercises[currentClassifyIndex];
-            const feedbackElement = document.getElementById('classify-feedback');
-            
-            // Disable all buttons
-            document.querySelectorAll('.classify-option').forEach(btn => {
-                btn.disabled = true;
-            });
-            
-            if (isCorrect) {
-                e.target.classList.add('bg-green-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-green-100 border-2 border-green-400 p-4 rounded-xl">
-                        <p class="text-green-800 font-bold text-lg">🎉 إجابة صحيحة!</p>
-                        <p class="text-green-700">"${exercise.subject}" هو ${exercise.correct}</p>
-                    </div>
-                `;
-                totalExerciseScore += 15;
-            } else {
-                e.target.classList.add('bg-red-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-red-100 border-2 border-red-400 p-4 rounded-xl">
-                        <p class="text-red-800 font-bold text-lg">❌ إجابة خاطئة</p>
-                        <p class="text-red-700">الإجابة الصحيحة: ${exercise.correct}</p>
-                    </div>
-                `;
-            }
-            
-            feedbackElement.classList.remove('hidden');
-            updateExerciseScore();
-        }
-
-        function nextClassifyExercise() {
-            currentClassifyIndex = (currentClassifyIndex + 1) % classifyExercises.length;
-            loadClassifyExercise();
-        }
-
-        // Complete Exercise Functions
-        function initializeCompleteExercise() {
-            loadCompleteExercise();
-        }
-
-        function loadCompleteExercise() {
-            const exercise = completeExercises[currentCompleteIndex];
-            document.getElementById('complete-sentence').textContent = exercise.sentence;
-            
-            const container = document.getElementById('complete-container');
-            const optionsContainer = container.querySelector('.grid');
-            optionsContainer.innerHTML = '';
-            
-            exercise.options.forEach(option => {
-                const button = document.createElement('button');
-                button.className = 'complete-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md';
-                button.textContent = option.text;
-                button.dataset.answer = option.correct ? 'true' : 'false';
-                button.dataset.type = option.type;
-                button.addEventListener('click', handleCompleteClick);
-                optionsContainer.appendChild(button);
-            });
-            
-            document.getElementById('complete-feedback').classList.add('hidden');
-        }
-
-        function handleCompleteClick(e) {
-            const isCorrect = e.target.dataset.answer === 'true';
-            const type = e.target.dataset.type;
-            const feedbackElement = document.getElementById('complete-feedback');
-            
-            // Disable all buttons
-            document.querySelectorAll('.complete-option').forEach(btn => {
-                btn.disabled = true;
-            });
-            
-            if (isCorrect) {
-                e.target.classList.add('bg-green-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-green-100 border-2 border-green-400 p-4 rounded-xl">
-                        <p class="text-green-800 font-bold text-lg">🎉 اختيار ممتاز!</p>
-                        <p class="text-green-700">"${e.target.textContent}" فاعل صحيح (${type})</p>
-                    </div>
-                `;
-                totalExerciseScore += 12;
-            } else {
-                e.target.classList.add('bg-red-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-red-100 border-2 border-red-400 p-4 rounded-xl">
-                        <p class="text-red-800 font-bold text-lg">❌ اختيار خاطئ</p>
-                        <p class="text-red-700">"${e.target.textContent}" ليس فاعلاً مناسباً</p>
-                    </div>
-                `;
-            }
-            
-            feedbackElement.classList.remove('hidden');
-            updateExerciseScore();
-        }
-
-        function nextCompleteExercise() {
-            currentCompleteIndex = (currentCompleteIndex + 1) % completeExercises.length;
-            loadCompleteExercise();
-        }
-
-        // Correct Exercise Functions
-        function initializeCorrectExercise() {
-            loadCorrectExercise();
-        }
-
-        function loadCorrectExercise() {
-            const exercise = correctExercises[currentCorrectIndex];
-            document.getElementById('correct-sentence').innerHTML = exercise.sentence;
-            
-            // Add click event to error word
-            const errorWord = document.querySelector('.error-word');
-            errorWord.addEventListener('click', showCorrectionOptions);
-            
-            document.getElementById('correction-options').classList.add('hidden');
-            document.getElementById('correct-feedback').classList.add('hidden');
-        }
-
-        function showCorrectionOptions() {
-            const exercise = correctExercises[currentCorrectIndex];
-            const optionsContainer = document.getElementById('correction-options');
-            optionsContainer.classList.remove('hidden');
-            
-            optionsContainer.innerHTML = '';
-            exercise.options.forEach(option => {
-                const button = document.createElement('button');
-                button.className = 'correction-option bg-white border-2 border-gray-300 hover:border-orange-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md';
-                button.textContent = option;
-                button.dataset.correction = option;
-                button.addEventListener('click', handleCorrectionClick);
-                optionsContainer.appendChild(button);
-            });
-        }
-
-        function handleCorrectionClick(e) {
-            const selectedCorrection = e.target.dataset.correction;
-            const exercise = correctExercises[currentCorrectIndex];
-            const feedbackElement = document.getElementById('correct-feedback');
-            
-            // Disable all buttons
-            document.querySelectorAll('.correction-option').forEach(btn => {
-                btn.disabled = true;
-            });
-            
-            if (selectedCorrection === exercise.correct) {
-                e.target.classList.add('bg-green-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-green-100 border-2 border-green-400 p-4 rounded-xl">
-                        <p class="text-green-800 font-bold text-lg">🎉 تصحيح ممتاز!</p>
-                        <p class="text-green-700">${exercise.explanation}</p>
-                    </div>
-                `;
-                totalExerciseScore += 20;
-            } else {
-                e.target.classList.add('bg-red-500', 'text-white');
-                feedbackElement.innerHTML = `
-                    <div class="bg-red-100 border-2 border-red-400 p-4 rounded-xl">
-                        <p class="text-red-800 font-bold text-lg">❌ تصحيح خاطئ</p>
-                        <p class="text-red-700">${exercise.explanation}</p>
-                    </div>
-                `;
-            }
-            
-            feedbackElement.classList.remove('hidden');
-            updateExerciseScore();
-        }
-
-        function nextCorrectExercise() {
-            currentCorrectIndex = (currentCorrectIndex + 1) % correctExercises.length;
-            loadCorrectExercise();
-        }
-
-
-
-        function updateExerciseScore() {
-            document.getElementById('total-exercise-score').textContent = totalExerciseScore;
-        }
-
-        function checkAnswer(button, isCorrect, questionNum) {
-            const currentQuestionDiv = document.getElementById(`question${questionNum}`);
-            const allButtons = currentQuestionDiv.querySelectorAll('.quiz-option');
-            const resultDiv = document.getElementById('quiz-result');
-            const correctDiv = document.getElementById('correct-answer');
-            const wrongDiv = document.getElementById('wrong-answer');
-            const correctExplanation = document.getElementById('correct-explanation');
-            const wrongExplanation = document.getElementById('wrong-explanation');
-            const nextBtn = document.getElementById('next-question');
-            const retryBtn = document.getElementById('retry-question');
-            const restartBtn = document.getElementById('restart-quiz');
-            
-            // Disable all buttons
-            allButtons.forEach(btn => btn.disabled = true);
-            
-            if (isCorrect) {
-                score++;
-                button.classList.add('bg-green-500', 'bg-opacity-80', 'pulse-glow');
-                correctDiv.classList.remove('hidden');
-                wrongDiv.classList.add('hidden');
-                correctExplanation.textContent = questionData[questionNum].correct;
-                
-                if (questionNum < totalQuestions) {
-                    nextBtn.classList.remove('hidden');
-                } else {
-                    restartBtn.classList.remove('hidden');
-                    setTimeout(() => {
-                        showQuizComplete();
-                    }, 2000);
-                }
-            } else {
-                button.classList.add('bg-red-500', 'bg-opacity-80');
-                wrongDiv.classList.remove('hidden');
-                correctDiv.classList.add('hidden');
-                wrongExplanation.textContent = questionData[questionNum].wrong;
-                retryBtn.classList.remove('hidden');
-            }
-            
-            resultDiv.classList.remove('hidden');
-        }
-
-        function nextQuestion() {
-            // Hide current question and result
-            document.getElementById(`question${currentQuestion}`).classList.add('hidden');
-            document.getElementById('quiz-result').classList.add('hidden');
-            
-            // Reset result buttons
-            document.getElementById('next-question').classList.add('hidden');
-            document.getElementById('retry-question').classList.add('hidden');
-            document.getElementById('correct-answer').classList.add('hidden');
-            document.getElementById('wrong-answer').classList.add('hidden');
-            
-            // Show next question
-            currentQuestion++;
-            document.getElementById(`question${currentQuestion}`).classList.remove('hidden');
-        }
-
-        function resetCurrentQuestion() {
-            const currentQuestionDiv = document.getElementById(`question${currentQuestion}`);
-            const allButtons = currentQuestionDiv.querySelectorAll('.quiz-option');
-            const resultDiv = document.getElementById('quiz-result');
-            
-            allButtons.forEach(btn => {
-                btn.disabled = false;
-                btn.className = 'quiz-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg';
-            });
-            
-            resultDiv.classList.add('hidden');
-        }
-
-        function restartQuiz() {
-            currentQuestion = 1;
-            score = 0;
-            
-            // Hide all questions and results
-            for (let i = 1; i <= totalQuestions; i++) {
-                document.getElementById(`question${i}`).classList.add('hidden');
-            }
-            document.getElementById('quiz-result').classList.add('hidden');
-            document.getElementById('quiz-complete').classList.add('hidden');
-            
-            // Reset all buttons
-            document.querySelectorAll('.quiz-option').forEach(btn => {
-                btn.disabled = false;
-                btn.className = 'quiz-option bg-white border-2 border-gray-300 hover:border-purple-500 text-gray-800 p-4 rounded-xl transition-all duration-300 font-semibold shadow-md hover:shadow-lg';
-            });
-            
-            // Show first question
-            document.getElementById('question1').classList.remove('hidden');
-        }
-
-        function showQuizComplete() {
-            document.getElementById('quiz-result').classList.add('hidden');
-            document.getElementById('quiz-complete').classList.remove('hidden');
-            document.getElementById('final-score').textContent = `${score}/${totalQuestions}`;
-        }
-
-        // Enhanced Word Game Variables
-        let currentGameIndex = 0;
-        let currentSentenceWords = [];
-        let gameScore = 0;
-        
-        const wordGameSentences = [
-            {
-                words: ['يلعب', 'الأطفال', 'في', 'الحديقة'],
-                correct: ['يلعب', 'الأطفال', 'في', 'الحديقة'],
-                verb: 'يلعب',
-                subject: 'الأطفال',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الذي يدل على اللعب، ثم من يقوم باللعب'
-            },
-            {
-                words: ['قرأت', 'البنت', 'الكتاب'],
-                correct: ['قرأت', 'البنت', 'الكتاب'],
-                verb: 'قرأت',
-                subject: 'البنت',
-                subjectType: 'اسم ظاهر (مفرد)',
-                hint: 'ابدأ بالفعل الماضي للقراءة، ثم من قامت بالقراءة'
-            },
-            {
-                words: ['في', 'لعبت', 'البنات', 'الحديقة'],
-                correct: ['لعبت', 'البنات', 'في', 'الحديقة'],
-                verb: 'لعبت',
-                subject: 'البنات',
-                subjectType: 'اسم ظاهر (جمع مؤنث سالم)',
-                hint: 'ابدأ بالفعل الماضي للعب، ثم من قمن باللعب'
-            },
-            {
-                words: ['الكرة', 'الأولاد', 'ركل'],
-                correct: ['ركل', 'الأولاد', 'الكرة'],
-                verb: 'ركل',
-                subject: 'الأولاد',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الذي يدل على الركل، ثم من قام بالركل'
-            },
-            {
-                words: ['المعلمات', 'شرحت', 'الدرس'],
-                correct: ['شرحت', 'المعلمات', 'الدرس'],
-                verb: 'شرحت',
-                subject: 'المعلمات',
-                subjectType: 'اسم ظاهر (جمع مؤنث سالم)',
-                hint: 'ابدأ بالفعل الماضي للشرح، ثم من قمن بالشرح'
-            },
-            {
-                words: ['جاء', 'المعلم', 'إلى', 'المدرسة'],
-                correct: ['جاء', 'المعلم', 'إلى', 'المدرسة'],
-                verb: 'جاء',
-                subject: 'المعلم',
-                subjectType: 'اسم ظاهر (مفرد)',
-                hint: 'ابدأ بالفعل الماضي للمجيء، ثم من جاء'
-            },
-            {
-                words: ['كتب', 'الطالب', 'الواجب', 'بعناية'],
-                correct: ['كتب', 'الطالب', 'الواجب', 'بعناية'],
-                verb: 'كتب',
-                subject: 'الطالب',
-                subjectType: 'اسم ظاهر (مفرد)',
-                hint: 'ابدأ بالفعل الماضي للكتابة، ثم من كتب'
-            },
-            {
-                words: ['سافرت', 'الأسر', 'في', 'الإجازة'],
-                correct: ['سافرت', 'الأسر', 'في', 'الإجازة'],
-                verb: 'سافرت',
-                subject: 'الأسر',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الماضي للسفر، ثم من سافر'
-            },
-            {
-                words: ['تدرس', 'الطالبات', 'بجد', 'واجتهاد'],
-                correct: ['تدرس', 'الطالبات', 'بجد', 'واجتهاد'],
-                verb: 'تدرس',
-                subject: 'الطالبات',
-                subjectType: 'اسم ظاهر (جمع مؤنث سالم)',
-                hint: 'ابدأ بالفعل المضارع للدراسة، ثم من تدرس'
-            },
-            {
-                words: ['نام', 'الأطفال', 'مبكراً', 'الليلة'],
-                correct: ['نام', 'الأطفال', 'مبكراً', 'الليلة'],
-                verb: 'نام',
-                subject: 'الأطفال',
-                subjectType: 'اسم ظاهر (جمع تكسير)',
-                hint: 'ابدأ بالفعل الماضي للنوم، ثم من نام'
-            }
-        ];
-
-        function initializeWordGame() {
-            updateGameProgress();
-            loadWordGame();
-        }
-
-        function updateGameProgress() {
-            document.getElementById('current-sentence-number').textContent = currentGameIndex + 1;
-            document.getElementById('total-sentences').textContent = wordGameSentences.length;
-            document.getElementById('game-score').textContent = gameScore;
-        }
-
-        function loadWordGame() {
-            const currentGame = wordGameSentences[currentGameIndex];
-            const scatteredWordsDiv = document.getElementById('scattered-words');
-            const sentenceArea = document.getElementById('sentence-area');
-            
-            // Clear previous game
-            scatteredWordsDiv.innerHTML = '';
-            sentenceArea.innerHTML = '<p class="text-gray-600 text-xl" id="drop-hint">👆 اضغط على الكلمات أعلاه لتكوين الجملة</p>';
-            currentSentenceWords = [];
-            
-            // Hide hint and result
-            document.getElementById('hint-area').classList.add('hidden');
-            document.getElementById('word-game-result').classList.add('hidden');
-            
-            // Shuffle words
-            const shuffledWords = [...currentGame.words].sort(() => Math.random() - 0.5);
-            
-            // Create word elements with enhanced styling
-            shuffledWords.forEach((word, index) => {
-                const wordElement = document.createElement('div');
-                wordElement.className = 'word-item bg-white bg-opacity-90 text-gray-800 px-6 py-4 rounded-2xl shadow-lg cursor-pointer hover:bg-opacity-100 hover:scale-110 transition-all duration-300 border-2 border-white font-bold text-lg transform';
-                wordElement.textContent = word;
-                wordElement.dataset.word = word;
-                wordElement.addEventListener('click', handleWordClick);
-                
-                scatteredWordsDiv.appendChild(wordElement);
-            });
-            
-            updateGameProgress();
-        }
-
-        function handleWordClick(e) {
-            const word = e.target.dataset.word;
-            addWordToSentence(word, e.target);
-        }
-
-        function addWordToSentence(word, wordElement) {
-            const sentenceArea = document.getElementById('sentence-area');
-            const dropHint = document.getElementById('drop-hint');
-            
-            // Remove hint if it exists
-            if (dropHint) {
-                dropHint.remove();
-            }
-            
-            // Create word in sentence area with enhanced animation
-            const sentenceWordElement = document.createElement('div');
-            sentenceWordElement.className = 'sentence-word bg-blue-500 bg-opacity-80 text-white px-6 py-3 rounded-xl cursor-pointer hover:bg-red-500 transition-all duration-300 font-bold text-lg border-2 border-white bounce-in transform hover:scale-105';
-            sentenceWordElement.textContent = word;
-            sentenceWordElement.dataset.word = word;
-            sentenceWordElement.addEventListener('click', () => removeWordFromSentence(sentenceWordElement));
-            
-            sentenceArea.appendChild(sentenceWordElement);
-            currentSentenceWords.push(word);
-            
-            // Remove from scattered words with animation
-            wordElement.style.transform = 'scale(0) rotate(180deg)';
-            setTimeout(() => wordElement.remove(), 300);
-        }
-
-        function removeWordFromSentence(wordElement) {
-            const word = wordElement.dataset.word;
-            const scatteredWordsDiv = document.getElementById('scattered-words');
-            
-            // Create word back in scattered area
-            const newWordElement = document.createElement('div');
-            newWordElement.className = 'word-item bg-white bg-opacity-90 text-gray-800 px-6 py-4 rounded-2xl shadow-lg cursor-pointer hover:bg-opacity-100 hover:scale-110 transition-all duration-300 border-2 border-white font-bold text-lg transform bounce-in';
-            newWordElement.textContent = word;
-            newWordElement.dataset.word = word;
-            newWordElement.addEventListener('click', handleWordClick);
-            
-            scatteredWordsDiv.appendChild(newWordElement);
-            
-            // Remove from sentence
-            wordElement.style.transform = 'scale(0) rotate(-180deg)';
-            setTimeout(() => wordElement.remove(), 300);
-            currentSentenceWords = currentSentenceWords.filter(w => w !== word);
-            
-            // Add hint back if sentence is empty
-            const sentenceArea = document.getElementById('sentence-area');
-            if (currentSentenceWords.length === 0) {
-                setTimeout(() => {
-                    if (sentenceArea.children.length === 0) {
-                        sentenceArea.innerHTML = '<p class="text-gray-600 text-xl" id="drop-hint">👆 اضغط على الكلمات أعلاه لتكوين الجملة</p>';
-                    }
-                }, 350);
-            }
-        }
-
-        function showHint() {
-            const currentGame = wordGameSentences[currentGameIndex];
-            const hintArea = document.getElementById('hint-area');
-            const hintText = document.getElementById('hint-text');
-            
-            hintText.textContent = currentGame.hint;
-            hintArea.classList.remove('hidden');
-            
-            // Hide hint after 7 seconds
-            setTimeout(() => {
-                hintArea.classList.add('hidden');
-            }, 7000);
-        }
-
-        function checkSentence() {
-            const currentGame = wordGameSentences[currentGameIndex];
-            const resultDiv = document.getElementById('word-game-result');
-            const feedback = document.getElementById('word-game-feedback');
-            const analysis = document.getElementById('sentence-analysis');
-            
-            if (currentSentenceWords.length === 0) {
-                resultDiv.className = 'hidden mt-6 p-8 rounded-2xl text-center bg-yellow-500 bg-opacity-80 text-white border-2 border-yellow-300';
-                feedback.textContent = '⚠️ يرجى تكوين جملة أولاً';
-                analysis.innerHTML = '';
-                resultDiv.classList.remove('hidden');
-                return;
-            }
-            
-            const isCorrect = JSON.stringify(currentSentenceWords) === JSON.stringify(currentGame.correct);
-            
-            if (isCorrect) {
-                gameScore += 15;
-                resultDiv.className = 'hidden mt-6 p-8 rounded-2xl text-center bg-green-500 bg-opacity-80 text-white border-2 border-green-300 pulse-glow';
-                feedback.textContent = '🎉 ممتاز! الجملة صحيحة! (+15 نقطة)';
-                analysis.innerHTML = `
-                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mt-4 border-2 border-white border-opacity-30">
-                        <p class="mb-3 text-xl"><span class="highlight-verb">${currentGame.verb}</span> = الفعل</p>
-                        <p class="text-xl"><span class="highlight-subject">${currentGame.subject}</span> = الفاعل (${currentGame.subjectType})</p>
-                    </div>
-                `;
-            } else {
-                resultDiv.className = 'hidden mt-6 p-8 rounded-2xl text-center bg-red-500 bg-opacity-80 text-white border-2 border-red-300';
-                feedback.textContent = '❌ الترتيب غير صحيح. حاول مرة أخرى!';
-                analysis.innerHTML = `
-                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mt-4 border-2 border-white border-opacity-30">
-                        <p class="text-white mb-3 text-lg">الترتيب الصحيح: <strong class="text-yellow-300">${currentGame.correct.join(' ')}</strong></p>
-                        <p class="text-white">الفعل: <span class="highlight-verb">${currentGame.verb}</span> | الفاعل: <span class="highlight-subject">${currentGame.subject}</span></p>
-                    </div>
-                `;
-            }
-            
-            resultDiv.classList.remove('hidden');
-            updateGameProgress();
-        }
-
-        function clearSentence() {
-            const sentenceArea = document.getElementById('sentence-area');
-            const scatteredWordsDiv = document.getElementById('scattered-words');
-            
-            // Move all words back to scattered area with enhanced animation
-            const sentenceWords = sentenceArea.querySelectorAll('.sentence-word');
-            sentenceWords.forEach((wordElement, index) => {
-                const word = wordElement.dataset.word;
-                
-                setTimeout(() => {
-                    const newWordElement = document.createElement('div');
-                    newWordElement.className = 'word-item bg-white bg-opacity-90 text-gray-800 px-6 py-4 rounded-2xl shadow-lg cursor-pointer hover:bg-opacity-100 hover:scale-110 transition-all duration-300 border-2 border-white font-bold text-lg transform bounce-in';
-                    newWordElement.textContent = word;
-                    newWordElement.dataset.word = word;
-                    newWordElement.addEventListener('click', handleWordClick);
-                    
-                    scatteredWordsDiv.appendChild(newWordElement);
-                }, index * 150);
-                
-                wordElement.style.transform = 'scale(0) rotate(360deg)';
-                setTimeout(() => wordElement.remove(), index * 150 + 300);
-            });
-            
-            // Clear sentence area
-            setTimeout(() => {
-                sentenceArea.innerHTML = '<p class="text-gray-600 text-xl" id="drop-hint">👆 اضغط على الكلمات أعلاه لتكوين الجملة</p>';
-                currentSentenceWords = [];
-            }, sentenceWords.length * 150 + 400);
-            
-            // Hide result and hint
-            document.getElementById('word-game-result').classList.add('hidden');
-            document.getElementById('hint-area').classList.add('hidden');
-        }
-
-        function nextWordGame() {
-            currentGameIndex = (currentGameIndex + 1) % wordGameSentences.length;
-            loadWordGame();
-        }
-
-        // Initialize word game when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeWordGame();
-            // Initialize first exercise
-            showExercise('identify');
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989f819406def9d7',t:'MTc1OTY5NDQzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123d38"><meta name="description" content="درس الفاعل للصف الخامس: شرح واضح وأمثلة تفاعلية وتدريبات على الاستخراج والضبط والإعراب والتوظيف، إعداد الأستاذ خليل البلوشي."><title>رحلة الفاعل | الأستاذ خليل البلوشي</title>
+<style>
+:root{--ink:#173f39;--muted:#526960;--paper:#f8f7f2;--white:#fff;--line:#dde5de;--teal:#166b56;--light:#e9f3ec;--gold:#f4ce77;--coral:#bc5036;--scale:1}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;color:var(--ink);background:var(--paper);font-family:Tahoma,Arial,sans-serif;font-size:calc(17px * var(--scale));line-height:1.9}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default}button{border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:13px;padding:10px 18px;min-height:48px;font-weight:700}button:hover:not(:disabled){background:var(--light);border-color:var(--teal)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--coral);outline-offset:4px}a{color:var(--teal)}[hidden]{display:none!important}.skip{position:absolute;top:-100px;right:20px;z-index:20;background:white;padding:10px}.skip:focus{top:10px}.wrap{width:min(1150px,calc(100% - 40px));margin:auto}.topbar{background:var(--white);border-bottom:1px solid var(--line)}.top-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:16px 0}.brand{display:flex;align-items:center;gap:12px;font-weight:700;line-height:1.6}.logo{background:var(--ink);color:var(--gold);width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:25px}.brand small{display:block;font-weight:400;color:var(--muted);font-size:.75em}.tools{display:flex;flex-wrap:wrap;gap:7px}.tools button{padding:7px 12px;font-size:.8em}.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:center;padding:52px 0 38px}.eyebrow{color:var(--teal);font-weight:700;font-size:.8em;letter-spacing:.4px}.hero h1{font-size:clamp(40px,6vw,72px);line-height:1.4;letter-spacing:-2px;margin:9px 0 12px}.hero h1 span{color:var(--coral)}.hero p{color:var(--muted);max-width:520px;margin:0 0 24px}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.primary{background:var(--ink);color:white;border-color:var(--ink)}.primary:hover:not(:disabled){background:var(--teal);color:white}.hero-art{background:var(--ink);padding:30px;border-radius:28px;color:white;position:relative;overflow:hidden;box-shadow:0 14px 0 #e4e9de}.hero-art:before{content:"";position:absolute;width:180px;height:180px;border:32px solid #ffffff08;border-radius:50%;top:-65px;left:-40px;pointer-events:none}.art-label{font-size:.75em;color:#d5e7df;position:relative}.sentence{font-size:clamp(24px,3.4vw,39px);line-height:2.2;font-weight:700;margin:16px 0;word-spacing:5px;overflow-wrap:anywhere}.hero-art .sentence{display:flex;flex-wrap:wrap;gap:8px;word-spacing:0}.tag{border-radius:10px;padding:1px 12px;display:inline-block;font-size:.8em}.verb{background:#f6dfad;color:#614718}.subject{background:#c4e8d1;color:#164630}.art-bottom{display:flex;justify-content:space-between;gap:16px;border-top:1px solid #ffffff30;padding-top:18px;font-size:.8em}.art-bottom strong{display:block;color:var(--gold)}.nav-shell{position:sticky;top:0;z-index:5;background:var(--paper);padding:10px 0;border-bottom:1px solid var(--line)}nav{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}nav button{padding:9px 5px;background:transparent;border-color:transparent;white-space:nowrap;font-size:.85em}nav button.active,nav button.active:hover:not(:disabled){background:var(--ink);color:white}.progress-strip{display:flex;align-items:center;gap:14px;padding:16px 0;font-size:.75em;color:var(--muted)}progress{width:160px;max-width:35%;height:8px;accent-color:var(--teal)}main{padding:20px 0 55px;min-height:500px}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}.section-head h2{font-size:clamp(25px,3vw,35px);line-height:1.6;margin:0}.section-head p{margin:4px 0;color:var(--muted);font-size:.9em}.pill{display:inline-block;background:var(--light);border-radius:99px;padding:4px 13px;color:var(--teal);font-size:.75em;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:25px;min-width:0}.card h3{margin:0 0 10px;font-size:1.13em}.card p{margin:8px 0}.card .num{font-size:14px;font-weight:700;color:var(--coral);display:block;margin-bottom:12px}.soft{background:var(--light)}.note{background:#fff2d9;border:1px solid #ead4a0;padding:16px 20px;border-radius:14px;margin:20px 0}.note p{margin:0}.steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:22px 0}.step{background:white;padding:22px;border:1px solid var(--line);border-radius:18px}.step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:32px;height:32px;background:var(--ink);color:white;border-radius:50%;font-size:14px;margin-bottom:12px}.step p{margin:6px 0;color:var(--muted);font-size:.9em}details{background:white;border:1px solid var(--line);border-radius:16px;margin:14px 0;padding:16px 20px}summary{cursor:pointer;font-weight:700}details p{margin:12px 0}ul,ol{padding-inline-start:25px}li{padding-inline-start:5px;margin:6px 0}.muted{color:var(--muted);font-size:.9em}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;text-align:right;background:white}th,td{padding:15px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--light)}.example{display:flex;flex-direction:column}.example .sentence{font-size:1.45em;margin:8px 0 18px;word-spacing:0}.example button{margin-top:auto}.analysis{border-top:1px solid var(--line);padding-top:13px;margin-top:15px;font-size:.9em}.analysis p{margin:6px 0}.filterbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.filterbar button{font-size:.85em}.filterbar .selected{background:var(--ink);color:white}.quizbox{max-width:800px;margin:0 auto}.quiz-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:.8em;color:var(--muted);margin-bottom:16px}.question{font-size:1.28em;line-height:1.9;margin:12px 0 22px;white-space:pre-line}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.option{text-align:right;display:flex;align-items:center;gap:12px;padding:16px;font-weight:400;line-height:1.8}.letter{display:grid;place-items:center;flex:0 0 29px;height:29px;border-radius:8px;background:var(--paper);font-size:14px;font-weight:700}.option.correct{border-color:var(--teal);background:#e6f4e9;color:#154c30}.option.wrong{border-color:#b14836;background:#fff0ed;color:#82351f}.option.chosen{border-color:var(--ink);background:var(--light);box-shadow:inset 0 0 0 1px var(--ink)}.feedback{padding:16px;border-radius:13px;background:var(--light);margin:20px 0}.feedback.error{background:#fff0ed}.feedback:empty{display:none}.quiz-actions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:22px}.score{font-size:2.6em;font-weight:700;line-height:1.5}.wordline{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.wordline button{font-size:1.17em;padding:10px 16px}.wordline button.found{background:var(--light);border-color:var(--teal)}.para{font-size:1.13em;line-height:2.3}.input-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:18px 0}label{display:block;font-size:.85em;font-weight:700}select,textarea{width:100%;padding:12px;border:1px solid #a8bdb1;border-radius:11px;background:white;color:var(--ink);margin-top:6px}textarea{min-height:110px;resize:vertical}.build-output{background:var(--light);border-radius:14px;padding:20px;text-align:center;font-size:1.4em;font-weight:700}.section-gap{margin-top:30px}.review-item{padding:16px 0;border-bottom:1px solid var(--line)}.review-item:last-child{border:0}.review-item p{margin:5px 0}.good{color:#1d6840}.bad{color:#a13e29}.link-card{display:block;text-decoration:none;color:var(--ink);padding:22px;border-radius:18px;border:1px solid var(--line);background:white}.link-card:hover{border-color:var(--teal)}.link-card span{display:block;color:var(--muted);font-size:.8em}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.8em}.footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}.checklist label{padding:10px 0;font-size:1em;font-weight:400;display:flex;gap:10px;align-items:flex-start}.checklist input{width:20px;height:20px;accent-color:var(--teal);margin-top:6px}.presentation{--scale:1.2}.presentation .hero{padding:26px 0}.presentation .hero h1{font-size:56px}.presentation .topbar .brand small{display:none}.print-only{display:none}@media(min-width:1500px){.wrap{width:min(1350px,calc(100% - 80px))}.hero{gap:90px}}@media(max-width:800px){.hero{gap:25px;grid-template-columns:1fr 1fr;padding:30px 0}.hero-art{padding:22px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}.step{display:grid;grid-template-columns:34px 1fr;column-gap:15px}.step:before{grid-row:1/3;margin:0}.step p{grid-column:2}.top-inner{gap:10px;align-items:flex-start}.input-grid{grid-template-columns:1fr 1fr}.presentation .hero h1{font-size:40px}}@media(max-width:600px){.wrap{width:calc(100% - 28px)}body{font-size:calc(16px * var(--scale))}.top-inner{flex-direction:column;padding:12px 0}.tools{width:100%}.tools button{flex:1}.hero{grid-template-columns:1fr;padding:28px 0;gap:26px}.hero h1{font-size:43px}.hero-art{padding:23px}.hero p{margin-bottom:18px}.hero .row button{flex:1}.grid,.two,.options,.input-grid{grid-template-columns:1fr}.nav-shell{padding:7px 0}nav{grid-template-columns:repeat(3,1fr);gap:4px}nav button{min-height:44px;padding:5px 3px}.progress-strip{padding:10px 0;gap:8px;font-size:.7em}.section-head{align-items:flex-start;gap:10px}.section-head .pill{margin-top:5px}.card{padding:20px}.section-head h2{font-size:26px}.question{font-size:1.16em}.sentence{font-size:1.5em}.art-bottom{font-size:.75em}.presentation .hero h1{font-size:40px}th,td{padding:10px;min-width:130px}.table-wrap table,.table-wrap tbody,.table-wrap tr,.table-wrap td{display:block}.table-wrap thead{display:none}.table-wrap tr{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}.table-wrap td{min-width:0;border:0;padding:9px 12px}.table-wrap td:before{content:attr(data-label) " : ";font-weight:700;color:var(--teal)}.quiz-actions button{flex:1}.footer .wrap{display:block}.footer p{margin:0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}@media print{body{font-size:11pt;line-height:1.65;background:white;color:#000}.topbar,.hero,.nav-shell,.progress-strip,main,.footer,.skip{display:none!important}.print-only{display:block;padding:0}.print-only h1{font-size:23pt;margin:0 0 8px}.print-only h2{font-size:14pt;margin:5px 0}.print-only .card{break-inside:avoid;padding:10px;margin:10px 0}.print-only table{font-size:11pt}button{display:none}@page{size:A4;margin:12mm}}
+</style></head>
+<body><a class="skip" href="#content">انتقل إلى محتوى الدرس</a>
+<header class="topbar"><div class="wrap top-inner"><div class="brand"><span class="logo" aria-hidden="true">ف</span><div>الأستاذ خليل البلوشي<small>لغتي الجميلة · الصف الخامس الأساسي</small></div></div><div class="tools"><button id="fontDown" aria-label="تصغير الخط">أ−</button><button id="fontUp" aria-label="تكبير الخط">أ+</button><button id="present" aria-pressed="false">عرض صفي</button><button id="print">طباعة الملخص</button></div></div></header>
+<div class="wrap hero"><div><span class="eyebrow">مهاراتي في الكتابة / الأنشطة النحوية</span><h1>وراء كل فعلٍ<br><span>فاعلٌ.</span></h1><p>من قام بالفعل؟ سؤال صغير يقودك إلى الإجابة. اكتشف الفاعل، واضبط آخره، وتدرّب حتى تتقن إعرابه.</p><div class="row"><button class="primary" data-go="learn">ابدأ رحلة التعلّم ←</button><button data-go="practice">جرّب مهارتك</button></div></div><div class="hero-art"><div class="art-label">انظر إلى الجملة… ثم اسأل</div><div class="sentence"><span class="tag verb">قرأَ</span><span class="tag subject">الطالبُ</span><span>القصةَ.</span></div><div class="art-bottom"><div>ما الحدث؟<strong>قرأَ ← الفعل</strong></div><div>من قرأ؟<strong>الطالبُ ← الفاعل</strong></div></div></div></div>
+<div class="nav-shell"><nav class="wrap" aria-label="أقسام الدرس"><button class="active" data-tab="start" aria-current="page">رحلتك</button><button data-tab="learn">أفهم</button><button data-tab="examples">ألاحظ</button><button data-tab="practice">أتدرّب</button><button data-tab="exam">أختبر نفسي</button><button data-tab="summary">خلاصتي</button></nav></div>
+<div class="wrap progress-strip"><span id="visitText">رحلتك: ١ من ٦ محطات</span><progress id="visitProgress" max="6" value="1" aria-label="محطات تمت زيارتها"></progress><span>خطوة صغيرة… فهم أكبر</span></div>
+<main id="content" class="wrap" tabindex="-1">
+<section id="start"><div class="section-head"><div><h2>ماذا ستُتقن اليوم؟</h2><p>شرح قصير، تطبيق واضح، ثم مراجعة لما تعلمته.</p></div><span class="pill">درس الفاعل</span></div><div class="grid"><article class="card"><span class="num">٠١ / أعرف</span><h3>الفعل والفاعل</h3><p>أميز الحدث ومن قام به، وأتعرف ركنَي الجملة الفعلية.</p></article><article class="card"><span class="num">٠٢ / أستخرج</span><h3>أبحث في الجملة</h3><p>أحدد الفاعل في جمل وفقرات متنوعة بالسؤال المناسب.</p></article><article class="card"><span class="num">٠٣ / أوظّف</span><h3>أضبط وأُعرب</h3><p>أثبت الحركة الصحيحة، وأكتب الإعراب، وأنشئ جملة من عندي.</p></article></div><div class="card soft section-gap"><h3>قبل أن تبدأ: تذكّر أقسام الكلام</h3><p><strong>اسم:</strong> طالبٌ، مدرسةٌ. <strong>فعل:</strong> قرأَ، يقرأُ، اقرأْ. <strong>حرف:</strong> في، مِنْ.</p><p>الفعل يدل على حدث مرتبط بزمن. <strong>الفاعل اسم يدل على من قام بالفعل.</strong></p><button data-go="learn" class="primary">لنكتشف القاعدة</button></div><div class="grid two section-gap"><div class="card"><h3>كيف تستخدم الصفحة؟</h3><p>انتقل بين المحطات، وافتح تحليل الأمثلة، ثم اختر مهارة للتدريب. في النهاية أجب عن المراجعة دون كشف الإجابات حتى التسليم.</p></div><div class="card"><h3>للمعلم وللعرض الصفي</h3><p>استخدم «عرض صفي» لتكبير المحتوى، وزرّي الخط لضبط القراءة. يمكن طباعة ملخص مرتب من أي محطة.</p></div></div></section>
+<section id="learn" hidden><div class="section-head"><div><h2>أفهم: من قام بالفعل؟</h2><p>اربط المعنى بالحركة، ثم عبّر عن فهمك.</p></div><span class="pill">القاعدة</span></div><div class="card soft"><h3>الفاعل</h3><p style="font-size:1.25em"><strong>اسمٌ مرفوعٌ يدلُّ على مَنْ قام بالفعل.</strong></p><p>في أمثلتنا يأتي الفاعل بعد الفعل، ونلاحظ الضمة على آخره.</p></div><details><summary>أستذكر: كيف أحدد نوع الفعل؟</summary><p><strong>ماضٍ:</strong> حدث وقع قبل وقت الكلام، مثل «كتبَ». اسأل: هل حدث وانتهى؟<br><strong>مضارع:</strong> حدث يقع الآن أو سيقع، مثل «يكتبُ». اسأل: هل يحدث أو سيحدث؟<br><strong>أمر:</strong> طلب القيام بفعل، مثل «اكتبْ». اسأل: هل أطلب من المخاطب عملًا؟</p><p>اعتمد على دلالة الفعل في الجملة؛ ولا تحكم على نوع الكلمة من الحرف الأول وحده. «أحمدُ» اسم، و«أكتبُ» فعل مضارع.</p></details><div class="steps"><div class="step"><strong>حدد الفعل أولًا</strong><p>ما الحدث في «كتبَ الطالبُ الواجبَ»؟ كتبَ.</p></div><div class="step"><strong>اسأل عن القائم بالفعل</strong><p>من كتب الواجب؟ الطالبُ؛ فهو الفاعل.</p></div><div class="step"><strong>لاحظ الحركة وأعرب</strong><p>الطالبُ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</p></div></div><div class="grid two"><article class="card"><h3>ركنا الجملة الفعلية</h3><p class="sentence"><span class="tag verb">ابتسمَ</span> <span class="tag subject">الطفلُ.</span></p><p><strong>الفعل:</strong> ابتسمَ، يدل على الحدث.</p><p><strong>الفاعل:</strong> الطفلُ، يدل على من ابتسم.</p></article><article class="card"><h3>الفاعل ليس إنسانًا دائمًا</h3><p>غرّدَ <strong>العصفورُ</strong>. ← ما الذي غرّد؟</p><p>هطلَ <strong>المطرُ</strong>. ← ما الذي هطل؟</p><p>أشرقتِ <strong>الشمسُ</strong>. ← ما الذي أشرق؟</p><p class="muted">نستخدم «مَنْ» مع العاقل، و«ما» مع غير العاقل.</p></article></div><div class="card section-gap"><h3>أضبط آخر الفاعل في أمثلة الدرس</h3><div class="table-wrap"><table><thead><tr><th>الجملة</th><th>الفعل ونوعه</th><th>الفاعل</th><th>إعرابه</th></tr></thead><tbody><tr><td>نجحَ الطالبُ.</td><td>نجحَ: ماضٍ</td><td>الطالبُ</td><td>فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</td></tr><tr><td>حضرَ الأطفالُ.</td><td>حضرَ: ماضٍ</td><td>الأطفالُ</td><td>فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</td></tr><tr><td>شاركتِ الطالباتُ.</td><td>شاركتِ: ماضٍ</td><td>الطالباتُ</td><td>فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</td></tr></tbody></table></div><p class="muted">في أمثلتنا: المفرد وجمع التكسير وجمع المؤنث السالم تُرفع بالضمة.</p></div><div class="note"><strong>لا تختَر بمجرد ترتيب الكلمات!</strong><p>«سألَ الطفلُ المعلمَ»: الطفلُ هو الفاعل؛ لأنه سأل، والمعلمَ هو من وُجّه إليه السؤال. افهم المعنى أولًا.</p></div><div class="grid two"><article class="card"><h3>ميّز الفاعل من المبتدأ</h3><p><strong>ابتسمَ الطفلُ.</strong> ← الطفلُ فاعل.</p><p><strong>الطفلُ مبتسمٌ.</strong> ← الطفلُ مبتدأ.</p><p>تغيّر تركيب الجملة، فتغيّرت وظيفة الاسم.</p></article><article class="card"><h3>ميّز الفاعل من المفعول به</h3><p><strong>قرأَ الطالبُ القصةَ.</strong></p><p>من قرأ؟ <strong>الطالبُ</strong>: فاعل.</p><p>ماذا قرأ؟ <strong>القصةَ</strong>: مفعول به.</p><p class="muted">هذا التمييز يساعدك في تحديد القائم بالفعل.</p></article></div><details><summary>إثراء اختياري: لماذا لا نقول إن كل فاعل يُرفع بالضمة؟</summary><p>الفاعل مرفوع، لكن علامة الرفع تختلف حسب نوع الاسم. أمثلة الضمة هي محور تدريبات هذه الصفحة.</p><p>حضرَ <strong>الطالبانِ</strong>: فاعل مرفوع بالألف؛ لأنه مثنى.<br>حضرَ <strong>المعلمونَ</strong>: فاعل مرفوع بالواو؛ لأنه جمع مذكر سالم.</p><p class="muted">توسّع اختياري لفهم القاعدة، ولا يدخل في المراجعة الأساسية هنا.</p></details><details><summary>إثراء اختياري: الفاعل الظاهر والضمير</summary><p><strong>كتبَ سالمٌ:</strong> سالمٌ اسم ظاهر، وهو الفاعل.</p><p><strong>كتبْتُ:</strong> التاء ضمير متصل مبني في محل رفع فاعل. كتبْ: فعل ماضٍ مبني على السكون لاتصاله بتاء الفاعل.</p><p><strong>كتبوا:</strong> واو الجماعة ضمير متصل مبني في محل رفع فاعل. كتبوا: فعل ماضٍ مبني على الضم لاتصاله بواو الجماعة.</p><p><strong>يكتبُ</strong> (عن سالم): الفاعل ضمير مستتر تقديره «هو» في محل رفع فاعل، واستتاره جائز. وفي <strong>اكتبْ</strong>: الفاعل ضمير مستتر وجوبًا تقديره «أنت».</p><p><strong>كتبَتْ سارةُ:</strong> تاء التأنيث الساكنة ليست فاعلًا؛ الفاعل هو سارةُ. أما تاء «كتبْتُ» فتدل على المتكلم، وهي الفاعل.</p><p class="muted">هذا إثراء من محتوى المشروع السابق، وليس جزءًا من الاختبار الأساسي في الصفحة.</p></details><button class="primary" data-go="examples">شاهد أمثلة محللة ←</button></section>
+<section id="examples" hidden><div class="section-head"><div><h2>ألاحظ: اكشف سر الجملة</h2><p>اقرأ واسأل نفسك أولًا، ثم افتح التحليل.</p></div><span class="pill">٨ أمثلة</span></div><div id="exampleGrid" class="grid two"></div><div class="card section-gap"><h3>قاعدة الإجابة الكاملة</h3><p>«الفاعل» يحدد الوظيفة، و«مرفوع» يحدد الحالة، و«الضمة الظاهرة على آخره» تحدد العلامة.</p><p class="build-output">الطالبُ: فاعلٌ مرفوعٌ وعلامةُ رفعهِ الضمةُ الظاهرةُ على آخره.</p></div><button data-go="practice" class="primary section-gap">حان دورك الآن</button></section>
+<section id="practice" hidden><div class="section-head"><div><h2>أتدرّب: جرّب، وافهم، وأتقن</h2><p>اختر مهارة. تحصل على تفسير بعد كل إجابة، وتُحسب محاولتك الأولى فقط.</p></div><span class="pill">٣٠ تدريبًا</span></div><div id="filters" class="filterbar" aria-label="مهارات التدريب"></div><div class="quizbox card"><div class="quiz-heading"><span id="practiceCount"></span><span id="practiceScore"></span></div><h3 id="practiceQ" class="question" tabindex="-1"></h3><div id="practiceOptions" class="options"></div><div id="practiceFeedback" class="feedback" role="status" aria-live="polite"></div><div class="quiz-actions"><button id="practicePrev">السابق</button><button id="practiceReset">إعادة تدريب المهارة</button><button id="practiceNext" class="primary">التالي ←</button></div></div><div class="card section-gap"><h3>محقق الفاعل: استخرج من الفقرة</h3><p>اضغط على الأسماء الثلاثة التي تدل على من قام بالفعل.</p><p class="para">زارَ خالدٌ المكتبةَ، واستقبلَ أمينُ المكتبةِ الزائرَ، ثم قرأَ الطالبُ قصةً مفيدةً.</p><div class="wordline" id="extractWords"></div><p id="extractFeedback" role="status" aria-live="polite">اكتشف ٠ من ٣ فواعل.</p><button id="extractReset">أعيد المحاولة</button><details><summary>قارن إعرابك بالنموذج</summary><p>خالدٌ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.<br>أمينُ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.<br>الطالبُ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</p><p>«المكتبةِ» بعد «أمينُ» مضاف إليه، وليست فاعلًا. لا نأخذ كل اسم على أنه فاعل.</p></details></div><div class="card section-gap"><h3>معمل الجملة: أبني وأوظّف</h3><p>اختر مشهدًا وفاعلًا مناسبًا. لاحظ كيف يتغير الفعل مع المؤنث.</p><div class="input-grid"><label>المشهد<select id="scene"><option value="read">قراءة قصة</option><option value="plant">زرع شجرة</option><option value="explain">شرح درس</option></select></label><label>من يقوم بالفعل؟<select id="actor"><option value="boy">الطالبُ</option><option value="girl">الطالبةُ</option></select></label></div><div id="buildOutput" class="build-output" aria-live="polite"></div><p id="buildExplain"></p><label for="ownSentence">والآن اكتب جملة فعلية من عندك، ثم أعرب فاعلها</label><textarea id="ownSentence" placeholder="مثال: رسمَ الطفلُ لوحةً. الطفلُ: فاعل…"></textarea><p class="muted">ما تكتبه يبقى مؤقتًا أثناء فتح الصفحة. راجع إجابتك بالقائمة الآتية؛ لا تُصحَّح الكتابة آليًا.</p><details><summary>أراجع جملتي بنفسي</summary><ul><li>هل بدأت بفعل يدل على حدث؟</li><li>هل ذكرت من قام بالفعل؟ وهل يناسبه المعنى؟</li><li>هل وضعت الضمة على آخر الفاعل في مثال مشابه لأمثلة الدرس؟</li><li>هل ذكرت الوظيفة والحالة وعلامة الإعراب؟</li></ul><p>نموذج آخر صحيح: غرّدَ العصفورُ. العصفورُ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</p><p>يمكن أن تكون إجابتك مختلفة وصحيحة إذا استوفت هذه الأمور.</p></details></div></section>
+<section id="exam" hidden><div class="section-head"><div><h2>أختبر نفسي: ماذا أتقنت؟</h2><p>مراجعة للدرس، وليست ورقة امتحان وزارية كاملة.</p></div><span class="pill">١٢ درجة</span></div><div id="examIntro" class="card quizbox"><h3>قبل أن تبدأ</h3><p>١٢ سؤالًا في المفهوم والاستخراج والضبط والإعراب والتصويب والتوظيف. لكل سؤال درجة واحدة.</p><p>يمكنك تغيير إجاباتك والتنقل بينها قبل التسليم. بعد التسليم تظهر النتيجة، والتفسير، والمهارات التي تحتاج مراجعة.</p><p class="muted">لا يوجد مؤقت. خذ وقتك واقرأ السؤال جيدًا.</p><button id="startExam" class="primary">أبدأ المراجعة</button></div><div id="examBox" class="card quizbox" hidden><div class="quiz-heading"><span id="examCount"></span><span id="examAnswered"></span></div><progress id="examProgress" max="12" value="0" aria-label="عدد أسئلة المراجعة المجاب عنها"></progress><h3 id="examQ" class="question" tabindex="-1"></h3><div id="examOptions" class="options"></div><div class="quiz-actions"><button id="examPrev">السابق</button><button id="examNext">التالي ←</button><button id="submitExam" class="primary">تسليم الإجابات</button></div><p id="examMessage" role="status" aria-live="polite"></p></div><div id="examResult" class="card quizbox" hidden tabindex="-1"></div></section>
+<section id="summary" hidden><div class="section-head"><div><h2>خلاصتي: مفتاح الفاعل</h2><p>احتفظ بالقاعدة، ثم راجع نقاطك الأساسية.</p></div><button id="printSummary">طباعة الملخص</button></div><div class="card soft"><h3>الفعل + الفاعل</h3><p>الفعل يدل على حدث مرتبط بزمن، والفاعل اسم مرفوع يدل على من قام بالفعل.</p><p><strong>من قام بالفعل؟</strong> ← حدد الفاعل. <strong>ما حركة آخره؟</strong> ← أثبت الضمة في أمثلة الدرس. <strong>ما إعرابه؟</strong> ← فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</p></div><div class="grid two section-gap"><article class="card"><h3>أخطاء أتجنبها</h3><ul><li>لا أخلط بين الفعل ومن قام به.</li><li>لا أختار المفعول به بدل الفاعل.</li><li>لا أحكم على الفاعل بالترتيب وحده.</li><li>لا أنسى حركة آخر الفاعل.</li><li>لا أكتفي بقول «فاعل» إذا طُلب الإعراب الكامل.</li></ul></article><article class="card checklist"><h3>بطاقة إتقان شخصية</h3><label><input type="checkbox">أميز الفعل والفاعل.</label><label><input type="checkbox">أستخرج الفاعل من الجملة والفقرة.</label><label><input type="checkbox">أضبط آخر الفاعل في أمثلة الدرس.</label><label><input type="checkbox">أعرب الفاعل إعرابًا كاملًا.</label><label><input type="checkbox">أكتب جملة فعلية صحيحة من إنشائي.</label></article></div><details><summary>للمعلم: مرجعية المحتوى وطريقة التقويم</summary><p>رُوجع درس الفاعل في دليل المعلم «لغتي الجميلة»، الفصل الدراسي الأول، طبعة التطوير ٢٠٢٣، الصفحات ١٦٥–١٦٨، ومنها صفحات كتاب الطالب ١٣٠–١٣٤ المصغّرة في الدليل.</p><p>محور الصفحة: ركنَا الجملة الفعلية، استخراج الفاعل من جمل وفقرات، إعرابه، وتوظيفه مع إثبات الحركة الإعرابية. يوصي الدليل بالاقتصار على المعالجات المقررة دون التوسع في المفاهيم وتفريعاتها؛ لذلك جُعلت الضمائر وعلامات الرفع الأخرى إثراءً اختياريًا خارج مراجعة الدرس الأساسية.</p><p>استُرشد بوثيقة تقويم تعلم الطلبة في اللغة العربية للصفوف ٥–١٢ وملحق النماذج الاسترشادية، قسم الصف الخامس ص ٦–١٣: معالجة الموضوعات المقررة، والاستخراج، والضبط، والإعراب؛ مع أسئلة جديدة، وتغذية راجعة، ودرجة كاملة لكل مفردة موضوعية.</p><p>المراجعة هنا أداة تدريب للفاعل وحده، ولا تمثل توزيع درجات اختبار قصير شامل لفروع المادة. مهمة الإنشاء تُراجع ذاتيًا أو مع المعلم مع قبول البدائل الصحيحة.</p></details><div class="grid two section-gap"><a class="link-card" href="https://www.youtube.com/watch?v=ySnrX0R1saw" target="_blank" rel="noopener noreferrer">شاهد شرح الفاعل — الجزء الأول<span>مورد التعليمية · وزارة التربية والتعليم، سلطنة عُمان ↗</span></a><a class="link-card" href="https://www.youtube.com/watch?v=EBGOG8SHqaA" target="_blank" rel="noopener noreferrer">شاهد شرح الفاعل — الجزء الثاني<span>مورد التعليمية · وزارة التربية والتعليم، سلطنة عُمان ↗</span></a></div></section>
+</main><footer class="footer"><div class="wrap"><span>إعداد وتطوير: <strong>الأستاذ خليل البلوشي</strong></span><span>الصف الخامس · اللغة العربية · تعلّم بثقة</span></div></footer>
+<div class="print-only"><h1>ملخص درس الفاعل</h1><p>لغتي الجميلة · الصف الخامس الأساسي<br>إعداد: الأستاذ خليل البلوشي</p><div class="card"><h2>القاعدة</h2><p>الجملة الفعلية تتكون من ركنين أساسيين: الفعل والفاعل. الفعل يدل على حدث مرتبط بزمن، والفاعل اسم مرفوع يدل على من قام بالفعل.</p><p>١. أحدد الفعل. ٢. أسأل: مَنْ أو ما الذي قام بالفعل؟ ٣. أضبط الفاعل وأعربه.</p></div><table><tr><th>الجملة</th><th>الفاعل</th><th>الإعراب</th></tr><tr><td>قرأَ الطالبُ القصةَ.</td><td>الطالبُ</td><td>فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</td></tr><tr><td>هطلَ المطرُ.</td><td>المطرُ</td><td>فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</td></tr><tr><td>حضرَ الأطفالُ.</td><td>الأطفالُ</td><td>فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</td></tr></table><div class="card"><h2>أنتبه</h2><p>الفاعل قد يكون إنسانًا أو حيوانًا أو شيئًا. نحدده بالمعنى، ولا نخلطه بالمفعول به: قرأَ الطالبُ القصةَ ← من قرأ؟ الطالبُ. ماذا قرأ؟ القصةَ.</p><p>«ابتسمَ الطفلُ»: الطفلُ فاعل. «الطفلُ مبتسمٌ»: الطفلُ مبتدأ.</p></div><div class="card"><h2>أتدرّب</h2><p>١. استخرج الفاعل: زرعَ الفلاحُ الشجرةَ.<br>٢. اضبط آخر كلمة «المعلم»: شرحَ المعلم الدرسَ.<br>٣. أعرب «العصفورُ»: غرّدَ العصفورُ.<br>٤. اكتب جملة فعلية من عندك واضبط فاعلها.</p></div><div class="card"><h2>نموذج الإجابة</h2><p>١. الفلاحُ. ٢. المعلمُ. ٣. العصفورُ: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره. ٤. مثال: رسمَ الطفلُ لوحةً؛ وتُقبل كل جملة صحيحة.</p></div><p>المرجع: دليل المعلم «لغتي الجميلة»، الفصل الأول، ص ١٦٥–١٦٨. هذه مراجعة للدرس، وليست اختبارًا وزاريًا كاملًا.</p></div>
+<script>
+'use strict';
+const QUESTIONS = [
+  {
+    "skill": "المفهوم",
+    "text": "ما الركنان الأساسيان للجملة الفعلية؟",
+    "options": [
+      "المبتدأ والخبر",
+      "الفعل والفاعل",
+      "الاسم والحرف",
+      "الفعل وحرف الجر"
+    ],
+    "answer": 1,
+    "why": "الفعل يدل على الحدث، والفاعل يدل على من قام بالفعل."
+  },
+  {
+    "skill": "المفهوم",
+    "text": "الفاعل هو:",
+    "options": [
+      "اسم يدل على من قام بالفعل",
+      "كلمة تدل على زمن الحدث فقط",
+      "اسم يدل على مكان الحدث فقط",
+      "اسم يقع عليه الفعل"
+    ],
+    "answer": 0,
+    "why": "نسأل: من قام بالفعل؟ فتدل الإجابة على الفاعل."
+  },
+  {
+    "skill": "المفهوم",
+    "text": "أي الجمل الآتية جملة فعلية؟",
+    "options": [
+      "الحديقةُ جميلةٌ.",
+      "الطالبُ نشيطٌ.",
+      "نظّفَ الطالبُ الحديقةَ.",
+      "الكتابُ مفيدٌ."
+    ],
+    "answer": 2,
+    "why": "بدأت الجملة بالفعل «نظّفَ»، وفاعلها «الطالبُ»."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "حدد الفاعل: «قرأَ سالمٌ القصةَ».",
+    "options": [
+      "قرأَ",
+      "القصةَ",
+      "سالمٌ",
+      "الجملة كلها"
+    ],
+    "answer": 2,
+    "why": "من قرأ القصة؟ سالمٌ؛ إذن سالمٌ هو الفاعل."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "حدد الفاعل: «تشرحُ المعلمةُ الدرسَ».",
+    "options": [
+      "تشرحُ",
+      "المعلمةُ",
+      "الدرسَ",
+      "لا يوجد فاعل"
+    ],
+    "answer": 1,
+    "why": "من يشرح الدرس؟ المعلمةُ، وهي اسم مرفوع."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "حدد الفاعل: «طارَ العصفورُ فوقَ الشجرةِ».",
+    "options": [
+      "الشجرةِ",
+      "فوقَ",
+      "طارَ",
+      "العصفورُ"
+    ],
+    "answer": 3,
+    "why": "ما الذي طار؟ العصفورُ. والفاعل قد يكون حيوانًا."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "حدد الفاعل: «هطلَ المطرُ صباحًا».",
+    "options": [
+      "المطرُ",
+      "صباحًا",
+      "هطلَ",
+      "لا يوجد فاعل"
+    ],
+    "answer": 0,
+    "why": "ما الذي هطل؟ المطرُ. لا يشترط أن يكون الفاعل إنسانًا."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "حدد الفاعل: «يحافظُ الأطفالُ على النظافةِ».",
+    "options": [
+      "النظافةِ",
+      "على",
+      "الأطفالُ",
+      "يحافظُ"
+    ],
+    "answer": 2,
+    "why": "من يحافظ على النظافة؟ الأطفالُ."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "في «زارَ المعلمُ المدرسةَ»، من قام بالزيارة؟",
+    "options": [
+      "المدرسةَ",
+      "المعلمُ",
+      "زارَ",
+      "الزيارةُ"
+    ],
+    "answer": 1,
+    "why": "المعلمُ قام بالزيارة، أما المدرسةَ فقد وقعت عليها الزيارة."
+  },
+  {
+    "skill": "الضبط",
+    "text": "اختر الضبط الصحيح: «حضرَ … إلى المدرسةِ».",
+    "options": [
+      "الطالبَ",
+      "الطالبِ",
+      "الطالبْ",
+      "الطالبُ"
+    ],
+    "answer": 3,
+    "why": "الطالبُ فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره."
+  },
+  {
+    "skill": "الضبط",
+    "text": "اختر الضبط الصحيح: «تساعدُ … المحتاجَ».",
+    "options": [
+      "الطالبةُ",
+      "الطالبةَ",
+      "الطالبةِ",
+      "الطالبةْ"
+    ],
+    "answer": 0,
+    "why": "الطالبةُ هي من تقوم بالمساعدة، فهي فاعل مرفوع بالضمة."
+  },
+  {
+    "skill": "الضبط",
+    "text": "اختر الضبط الصحيح: «عادَ … من الرحلةِ».",
+    "options": [
+      "الأطفالَ",
+      "الأطفالُ",
+      "الأطفالِ",
+      "الأطفالْ"
+    ],
+    "answer": 1,
+    "why": "الأطفالُ فاعل مرفوع بالضمة؛ وهو جمع تكسير."
+  },
+  {
+    "skill": "الضبط",
+    "text": "اختر الضبط الصحيح: «شاركتِ … في النشاطِ».",
+    "options": [
+      "الطالباتِ",
+      "الطالباتَ",
+      "الطالباتُ",
+      "الطالباتْ"
+    ],
+    "answer": 2,
+    "why": "الطالباتُ فاعل مرفوع بالضمة. الكسرة في آخر «شاركتِ» للتخلص من التقاء الساكنين؛ لا تغيّر رفع الفاعل."
+  },
+  {
+    "skill": "الإعراب",
+    "text": "إعراب «الطبيبُ» في «عالجَ الطبيبُ المريضَ»:",
+    "options": [
+      "فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره",
+      "مفعول به منصوب",
+      "اسم مجرور",
+      "مبتدأ مرفوع"
+    ],
+    "answer": 0,
+    "why": "الطبيبُ هو من قام بالعلاج، وقد جاء بعد الفعل."
+  },
+  {
+    "skill": "الإعراب",
+    "text": "أكمل: «الشمسُ» في «أشرقتِ الشمسُ» فاعل …",
+    "options": [
+      "منصوب بالفتحة",
+      "مجرور بالكسرة",
+      "مرفوع بالضمة الظاهرة",
+      "مبني على السكون"
+    ],
+    "answer": 2,
+    "why": "الشمسُ اسم ظاهر يدل على ما أشرق، وهو فاعل مرفوع بالضمة."
+  },
+  {
+    "skill": "الإعراب",
+    "text": "أي الإجابات أكمل في إعراب «خالدٌ» في «ابتسمَ خالدٌ»؟",
+    "options": [
+      "خالدٌ اسم",
+      "خالدٌ فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره",
+      "خالدٌ مرفوع فقط",
+      "خالدٌ فعل ماضٍ"
+    ],
+    "answer": 1,
+    "why": "الإعراب الكامل يذكر الوظيفة والحالة الإعرابية وعلامتها."
+  },
+  {
+    "skill": "التصويب",
+    "text": "صوّب: «كتبَ الطالبَ واجبَه».",
+    "options": [
+      "كتبَ الطالبِ واجبَه.",
+      "كتبَ الطالبْ واجبَه.",
+      "كتبَ الطالبُ واجبَه.",
+      "كتبَ الطالبَ واجبَه."
+    ],
+    "answer": 2,
+    "why": "الطالبُ قام بالكتابة، ولذلك يُرفع بالضمة."
+  },
+  {
+    "skill": "التصويب",
+    "text": "صوّب: «تفتحُ المعلمةِ البابَ».",
+    "options": [
+      "تفتحُ المعلمةُ البابَ.",
+      "تفتحُ المعلمةَ البابَ.",
+      "تفتحُ المعلمةْ البابَ.",
+      "تفتحُ المعلمةِ البابَ."
+    ],
+    "answer": 0,
+    "why": "المعلمةُ فاعل، فيجب ضبط آخرها بالضمة."
+  },
+  {
+    "skill": "التوظيف",
+    "text": "اختر الفاعل المناسب: «يُصلحُ … السيارةَ».",
+    "options": [
+      "الميكانيكيُّ",
+      "القصةُ",
+      "المطرُ",
+      "الكتابُ"
+    ],
+    "answer": 0,
+    "why": "الميكانيكيُّ هو من يقوم بإصلاح السيارة؛ نراعي المعنى مع صحة الضبط."
+  },
+  {
+    "skill": "التوظيف",
+    "text": "اختر الجملة الصحيحة في المعنى والضبط.",
+    "options": [
+      "يشرحُ الدرسَ المعلمةِ.",
+      "تشرحُ المعلمةُ الدرسَ.",
+      "تشرحُ المعلمةَ الدرسُ.",
+      "تشرحُ المعلمةِ الدرسَ."
+    ],
+    "answer": 1,
+    "why": "المعلمةُ فاعل مرفوع، والدرسَ هو ما تشرحه."
+  },
+  {
+    "skill": "التمييز",
+    "text": "ما الفرق بين «قرأَ» و«القارئُ»؟",
+    "options": [
+      "كلاهما فعل",
+      "قرأَ اسم والقارئُ فعل",
+      "قرأَ فعل والقارئُ اسم",
+      "كلاهما حرف"
+    ],
+    "answer": 2,
+    "why": "الفعل يرتبط بزمن؛ أما القارئُ فهو اسم يدل على الشخص."
+  },
+  {
+    "skill": "التمييز",
+    "text": "في «زرعَ الفلاحُ الشجرةَ»، أي كلمة تدل على من قام بالفعل؟",
+    "options": [
+      "الشجرةَ",
+      "الفلاحُ",
+      "زرعَ",
+      "لا توجد"
+    ],
+    "answer": 1,
+    "why": "الفلاحُ زرع، والشجرةَ هي التي زُرعت؛ لا نخلط بينهما."
+  },
+  {
+    "skill": "التمييز",
+    "text": "أي عبارة صحيحة؟",
+    "options": [
+      "الفاعل دائمًا إنسان",
+      "الفاعل فعل يدل على الزمن",
+      "الفاعل في أمثلتنا اسم مرفوع",
+      "الفاعل هو كل كلمة بعد الفعل"
+    ],
+    "answer": 2,
+    "why": "نحدد الفاعل بالمعنى والسؤال عن القائم بالفعل؛ فقد يكون إنسانًا أو حيوانًا أو شيئًا."
+  },
+  {
+    "skill": "التمييز",
+    "text": "أكمل: «لعبَ الصبيُّ»؛ كلمة «لعبَ» … وكلمة «الصبيُّ» …",
+    "options": [
+      "فاعل، فعل",
+      "فعل، فاعل",
+      "اسم، حرف",
+      "خبر، مبتدأ"
+    ],
+    "answer": 1,
+    "why": "لعبَ يدل على الحدث، والصبيُّ يدل على من قام به."
+  },
+  {
+    "skill": "المفهوم",
+    "text": "السؤال الذي يساعدك على تحديد الفاعل في «أنشدَ الطالبُ القصيدةَ» هو:",
+    "options": [
+      "متى أنشد؟",
+      "أين أنشد؟",
+      "ماذا أنشد؟",
+      "من أنشد القصيدة؟"
+    ],
+    "answer": 3,
+    "why": "«من أنشد؟» يحدد القائم بالفعل؛ أما «ماذا أنشد؟» فيحدد القصيدة."
+  },
+  {
+    "skill": "التوظيف",
+    "text": "اختر الفاعل المناسب: «تُضيءُ … الأرضَ».",
+    "options": [
+      "الشمسُ",
+      "الطالبةِ",
+      "القلمَ",
+      "القصةُ"
+    ],
+    "answer": 0,
+    "why": "الشمسُ هي التي تُضيء، وهي فاعل مرفوع بالضمة."
+  },
+  {
+    "skill": "الاستخراج",
+    "text": "حدد الفاعل في «سألَ الطفلُ المعلمَ عن القصةِ».",
+    "options": [
+      "المعلمَ",
+      "الطفلُ",
+      "القصةِ",
+      "عن"
+    ],
+    "answer": 1,
+    "why": "من سأل؟ الطفلُ؛ لا نختار المعلمَ لمجرد أنه اسم إنسان."
+  },
+  {
+    "skill": "الضبط",
+    "text": "ما حركة آخر «العامل» في «ينظّفُ العامل الشارعَ»؟",
+    "options": [
+      "الفتحة",
+      "الكسرة",
+      "الضمة",
+      "السكون"
+    ],
+    "answer": 2,
+    "why": "العاملُ هو من ينظف، فهو فاعل مرفوع بالضمة."
+  },
+  {
+    "skill": "التصويب",
+    "text": "صوّب: «نجحتِ الطالباتَ في الاختبارِ».",
+    "options": [
+      "نجحتِ الطالباتُ في الاختبارِ.",
+      "نجحتِ الطالباتِ في الاختبارِ.",
+      "نجحتِ الطالباتْ في الاختبارِ.",
+      "نجحتِ الطالباتَ في الاختبارِ."
+    ],
+    "answer": 0,
+    "why": "الطالباتُ فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره."
+  },
+  {
+    "skill": "الإعراب",
+    "text": "«الأزهارُ» في «تفتّحتِ الأزهارُ» هي:",
+    "options": [
+      "فعل ماضٍ",
+      "فاعل مرفوع بالضمة الظاهرة",
+      "اسم مجرور بالكسرة",
+      "مفعول به منصوب بالفتحة"
+    ],
+    "answer": 1,
+    "why": "الأزهارُ هي ما تفتّح؛ وهي جمع تكسير مرفوع بالضمة."
+  }
+];
+const $=id=>document.getElementById(id), ar=n=>Number(n).toLocaleString('ar-OM');
+document.querySelectorAll('.table-wrap table').forEach(t=>{const labels=[...t.querySelectorAll('th')].map(h=>h.textContent);t.querySelectorAll('tbody tr').forEach(r=>[...r.cells].forEach((c,i)=>c.dataset.label=labels[i]))});
+const visited=new Set(['start']);let activeTab='start',fontSize=1;
+function go(tab){if(!['start','learn','examples','practice','exam','summary'].includes(tab))return;document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!==tab);document.querySelectorAll('[data-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.classList.toggle('active',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});activeTab=tab;visited.add(tab);$('visitText').textContent=`رحلتك: ${ar(visited.size)} من ٦ محطات`;$('visitProgress').value=visited.size;$('content').focus({preventScroll:true});$('content').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}
+document.querySelectorAll('[data-tab],[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab||b.dataset.go)));
+$('fontUp').onclick=()=>{fontSize=Math.min(1.35,Math.round((fontSize+.1)*100)/100);applyFont()};$('fontDown').onclick=()=>{fontSize=Math.max(.9,Math.round((fontSize-.1)*100)/100);applyFont()};function applyFont(){document.documentElement.style.setProperty('--scale',document.body.classList.contains('presentation')?Math.max(fontSize,1.2):fontSize);$('fontUp').disabled=fontSize>=1.35;$('fontDown').disabled=fontSize<=.9}
+$('present').onclick=()=>{const on=document.body.classList.toggle('presentation');$('present').setAttribute('aria-pressed',on);$('present').textContent=on?'إنهاء العرض':'عرض صفي';document.documentElement.style.setProperty('--scale',on?Math.max(fontSize,1.2):fontSize)};
+$('print').onclick=$('printSummary').onclick=()=>window.print();
+const examples=[
+['كتبَ','الطالبُ','الواجبَ.','من كتب الواجب؟','الطالبُ','فعل ماضٍ مبني على الفتح.'],
+['تشرحُ','المعلمةُ','الدرسَ.','من يشرح الدرس؟','المعلمةُ','فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة على آخره.'],
+['غرّدَ','العصفورُ','صباحًا.','ما الذي غرّد؟','العصفورُ','فعل ماضٍ مبني على الفتح.'],
+['هطلَ','المطرُ','بغزارةٍ.','ما الذي هطل؟','المطرُ','فعل ماضٍ مبني على الفتح.'],
+['حضرَ','الأطفالُ','إلى المدرسةِ.','من حضر إلى المدرسة؟','الأطفالُ','فعل ماضٍ مبني على الفتح.'],
+['تفتّحتِ','الأزهارُ','في الحديقةِ.','ما الذي تفتّح؟','الأزهارُ','فعل ماضٍ مبني على الفتح، والتاء تاء التأنيث الساكنة حُرّكت بالكسر للتخلص من التقاء الساكنين.'],
+['شاركتِ','الطالباتُ','في النشاطِ.','من شارك في النشاط؟','الطالباتُ','فعل ماضٍ مبني على الفتح، والتاء تاء التأنيث الساكنة حُرّكت بالكسر للتخلص من التقاء الساكنين.'],
+['سألَ','الطفلُ','المعلمَ.','من سأل المعلم؟','الطفلُ','فعل ماضٍ مبني على الفتح.']];
+examples.forEach((e,i)=>{const c=document.createElement('article');c.className='card example';c.innerHTML=`<span class="num">مثال ${ar(i+1)}</span><div class="sentence"><span>${e[0]}</span> <span>${e[1]}</span> ${e[2]}</div><button aria-expanded="false" aria-controls="analysis${i}">أُظهر التحليل</button><div id="analysis${i}" class="analysis" hidden><p><strong>${e[3]}</strong> ${e[4]}.</p><p><strong>الفعل: ${e[0]}</strong> — ${e[5]}</p><p><strong>${e[1]}:</strong> فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</p></div>`;c.querySelector('button').onclick=function(){const on=this.getAttribute('aria-expanded')!=='true';this.setAttribute('aria-expanded',on);this.textContent=on?'أُخفي التحليل':'أُظهر التحليل';c.querySelector('.analysis').hidden=!on;c.querySelector('.sentence span:nth-child(1)').className=on?'tag verb':'';c.querySelector('.sentence span:nth-child(2)').className=on?'tag subject':''};$('exampleGrid').append(c)});
+const skills=['الكل',...new Set(QUESTIONS.map(q=>q.skill))];let skill='الكل',pool=QUESTIONS.map((q,i)=>i),pi=0;const attempts=new Map();
+skills.forEach(s=>{const b=document.createElement('button');b.textContent=s;b.dataset.skill=s;b.setAttribute('aria-pressed',s===skill);b.classList.toggle('selected',s===skill);b.onclick=()=>{skill=s;pool=QUESTIONS.map((q,i)=>i).filter(i=>s==='الكل'||QUESTIONS[i].skill===s);pi=0;document.querySelectorAll('[data-skill]').forEach(x=>{const on=x.dataset.skill===s;x.classList.toggle('selected',on);x.setAttribute('aria-pressed',on)});renderPractice()};$('filters').append(b)});
+function optionButton(text,i,click){const b=document.createElement('button');b.className='option';const letter=document.createElement('span');letter.className='letter';letter.textContent=['أ','ب','ج','د'][i];letter.setAttribute('aria-hidden','true');const t=document.createElement('span');t.textContent=text;b.append(letter,t);b.addEventListener('click',()=>click(i));return b}
+function renderPractice(){const id=pool[pi],q=QUESTIONS[id],a=attempts.get(id);$('practiceCount').textContent=`${q.skill} · سؤال ${ar(pi+1)} من ${ar(pool.length)}`;const done=pool.filter(i=>attempts.has(i)),score=done.filter(i=>attempts.get(i)===QUESTIONS[i].answer).length;$('practiceScore').textContent=`الصحيح: ${ar(score)} / ${ar(done.length)} محاولة`;$('practiceQ').textContent=q.text;$('practiceOptions').replaceChildren();q.options.forEach((o,i)=>{const b=optionButton(o,i,x=>{if(attempts.has(id))return;attempts.set(id,x);renderPractice()});if(a!==undefined){b.disabled=true;if(i===q.answer)b.classList.add('correct');if(i===a&&a!==q.answer)b.classList.add('wrong')}$('practiceOptions').append(b)});const f=$('practiceFeedback');f.textContent=a===undefined?'':`${a===q.answer?'إجابة صحيحة!':'لنتعلّم من المحاولة.'} ${q.why}`;f.classList.toggle('error',a!==undefined&&a!==q.answer);$('practicePrev').disabled=pi===0;$('practiceNext').disabled=pi===pool.length-1}
+$('practiceNext').onclick=()=>{if(pi<pool.length-1){pi++;renderPractice();$('practiceQ').focus({preventScroll:true})}};$('practicePrev').onclick=()=>{if(pi>0){pi--;renderPractice();$('practiceQ').focus({preventScroll:true})}};$('practiceReset').onclick=()=>{pool.forEach(i=>attempts.delete(i));pi=0;renderPractice()};renderPractice();
+const words=['خالدٌ','المكتبةَ','أمينُ','المكتبةِ','الزائرَ','الطالبُ','قصةً','مفيدةً'],targets=new Set(['خالدٌ','أمينُ','الطالبُ']),found=new Set();
+words.forEach(w=>{const b=document.createElement('button');b.textContent=w;b.setAttribute('aria-pressed','false');b.onclick=()=>{if(targets.has(w)){found.add(w);b.classList.add('found');b.setAttribute('aria-pressed','true');b.disabled=true;$('extractFeedback').textContent=found.size===3?'أحسنت! استخرجت خالدٌ، وأمينُ، والطالبُ. كل منها فاعل مرفوع بالضمة.':`صحيح: ${w} فاعل. اكتشفت ${ar(found.size)} من ٣.`}else{$('extractFeedback').textContent=`«${w}» ليست فاعلًا هنا. اسأل: من زار؟ من استقبل؟ من قرأ؟`}};$('extractWords').append(b)});$('extractReset').onclick=()=>{found.clear();$('extractWords').querySelectorAll('button').forEach(b=>{b.disabled=false;b.classList.remove('found');b.setAttribute('aria-pressed','false')});$('extractFeedback').textContent='اكتشف ٠ من ٣ فواعل.'};
+function build(){const scene=$('scene').value,girl=$('actor').value==='girl',subject=girl?'الطالبةُ':'الطالبُ';const scenes={read:[girl?'قرأَتِ':'قرأَ','القصةَ.'],plant:[girl?'زرعَتِ':'زرعَ','الشجرةَ.'],explain:[girl?'شرحَتِ':'شرحَ','الدرسَ.']};const e=scenes[scene];$('buildOutput').textContent=`${e[0]} ${subject} ${e[1]}`;$('buildExplain').textContent=`من قام بالفعل؟ ${subject}. ${subject}: فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره.`};$('scene').onchange=$('actor').onchange=build;build();
+// A balanced, fixed formative review: two items per major skill except distinction.
+const examIds=[0,2,3,26,9,12,13,15,16,28,18,19];let ei=0,examAnswers=Array(12).fill(null),examStarted=false,examSubmitted=false;
+function startExam(){ei=0;examAnswers=Array(12).fill(null);examStarted=true;examSubmitted=false;$('examIntro').hidden=true;$('examResult').hidden=true;$('examBox').hidden=false;renderExam();$('examQ').focus({preventScroll:true})}
+$('startExam').onclick=startExam;
+function renderExam(){const q=QUESTIONS[examIds[ei]];$('examCount').textContent=`سؤال ${ar(ei+1)} من ١٢ · ${q.skill}`;const n=examAnswers.filter(x=>x!==null).length;$('examAnswered').textContent=`أجبت عن ${ar(n)} من ١٢`;$('examProgress').value=n;$('examQ').textContent=q.text;$('examOptions').replaceChildren();q.options.forEach((o,i)=>{const b=optionButton(o,i,x=>{if(examSubmitted)return;examAnswers[ei]=x;renderExam()});b.classList.toggle('chosen',examAnswers[ei]===i);b.setAttribute('aria-pressed',examAnswers[ei]===i);$('examOptions').append(b)});$('examPrev').disabled=ei===0;$('examNext').disabled=ei===11;$('examMessage').textContent=''}
+$('examPrev').onclick=()=>{if(ei>0){ei--;renderExam();$('examQ').focus({preventScroll:true})}};$('examNext').onclick=()=>{if(ei<11){ei++;renderExam();$('examQ').focus({preventScroll:true})}};
+$('submitExam').onclick=()=>{if(!examStarted||examSubmitted)return;const missing=examAnswers.findIndex(x=>x===null);if(missing!==-1){ei=missing;renderExam();$('examMessage').textContent='أكمل جميع الأسئلة قبل التسليم. انتقلنا إلى أول سؤال لم تُجب عنه.';$('examQ').focus({preventScroll:true});return}examSubmitted=true;const score=examIds.filter((id,i)=>QUESTIONS[id].answer===examAnswers[i]).length;const weak=[...new Set(examIds.filter((id,i)=>QUESTIONS[id].answer!==examAnswers[i]).map(id=>QUESTIONS[id].skill))];$('examBox').hidden=true;const r=$('examResult');r.hidden=false;r.replaceChildren();const h=document.createElement('h3');h.textContent=score===12?'أحسنت، أتقنت مهارات المراجعة!':score>=9?'عمل جيد، بقيت خطوات قليلة!':'كل محاولة تقرّبك من الإتقان.';const s=document.createElement('div');s.className='score';s.textContent=`${ar(score)} / ١٢`;const p=document.createElement('p');p.textContent=weak.length?`راجع هذه المهارات: ${weak.join('، ')}. اقرأ تفسير كل إجابة، ثم عد إلى التدريب.`:'إجاباتك كلها صحيحة. جرّب كتابة فقرة قصيرة واستخرج فواعلها.';r.append(h,s,p);const row=document.createElement('div');row.className='row';const retry=document.createElement('button');retry.textContent='أعيد المراجعة';retry.onclick=startExam;const train=document.createElement('button');train.className='primary';train.textContent='أعود إلى التدريب';train.onclick=()=>go('practice');row.append(retry,train);r.append(row);examIds.forEach((id,i)=>{const q=QUESTIONS[id],ok=q.answer===examAnswers[i],d=document.createElement('div');d.className='review-item';const title=document.createElement('strong');title.className=ok?'good':'bad';title.textContent=`${ok?'✓ صحيح':'↻ راجع'} · ${ar(i+1)}. ${q.text}`;const yours=document.createElement('p');yours.textContent=`إجابتك: ${q.options[examAnswers[i]]}`;const right=document.createElement('p');right.textContent=`الإجابة الصحيحة: ${q.options[q.answer]}`;const why=document.createElement('p');why.className='muted';why.textContent=q.why;d.append(title,yours);if(!ok)d.append(right);d.append(why);r.append(d)});r.focus({preventScroll:true});r.scrollIntoView({block:'start',behavior:'smooth'})};
+</script></body></html>
